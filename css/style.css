@@ -300,6 +300,13 @@ h1 {
 @media (max-width: 640px) {
   .tab-buttons {
     justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+
+  .tab-buttons button {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -462,6 +469,10 @@ h1 {
   .music-plus-bottom {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .music-plus-grid > :last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
   }
 }
 

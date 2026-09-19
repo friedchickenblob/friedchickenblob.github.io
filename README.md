@@ -36,13 +36,24 @@ docker compose down
 
 ```
 .
-├── *.html            # one file per page/route
-├── css/style.css      # all styles, including dark mode via CSS variables
-├── js/script.js       # nav, tabs, dark mode, and data for languages/games/music/projects
-├── assets/            # images
+├── index.html          # home, served at /
+├── projects/index.html # served at /projects/
+├── blog/index.html     # served at /blog/
+├── experience/index.html
+├── fun/index.html
+├── facts/index.html    # data-driven, e.g. /facts/?lang=thai
+├── game/index.html     # data-driven, e.g. /game/?game=celeste
+├── music/index.html    # data-driven, e.g. /music/?category=seasons
+├── project/index.html  # data-driven, e.g. /project/?project=calobro
+├── recipe/index.html   # data-driven, e.g. /recipe/?dish=chicken-noodle-soup
+├── css/style.css       # all styles, including dark mode via CSS variables
+├── js/script.js        # nav, tabs, dark mode, and data for languages/games/music/projects
+├── assets/             # images
 ├── chicken/            # favicon set
 ├── Dockerfile
 └── docker-compose.yml
 ```
 
-Data-driven sub-pages (`facts.html`, `game.html`, `music.html`, `project.html`, `recipe.html`) read a `?query=` param and look up their content from an object in `js/script.js`, so adding a new entry is usually just adding one object to a data map plus a linking card.
+Every page lives at its own folder with an `index.html`, so URLs are clean (`/projects/` instead of `/projects.html`) both locally (nginx serves directory `index.html` by default) and on GitHub Pages. All internal links and asset references use absolute root paths (e.g. `/css/style.css`) rather than relative ones, since pages now live at different folder depths.
+
+Data-driven sub-pages (`facts/`, `game/`, `music/`, `project/`, `recipe/`) read a `?query=` param and look up their content from an object in `js/script.js`, so adding a new entry is usually just adding one object to a data map plus a linking card.

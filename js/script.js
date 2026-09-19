@@ -311,25 +311,25 @@ const PROJECTS = {
     name: "CaloBro 📸",
     blurb: "An app where you snap a picture of your meal and it automatically logs the calories, with streaks to keep you consistent.",
     images: [
-      "assets/calobro/98.png",
-      "assets/calobro/99.png",
-      "assets/calobro/100.png",
-      "assets/calobro/101.png",
-      "assets/calobro/102.png",
+      "/assets/calobro/98.png",
+      "/assets/calobro/99.png",
+      "/assets/calobro/100.png",
+      "/assets/calobro/101.png",
+      "/assets/calobro/102.png",
     ],
   },
   "hire-power": {
     name: "Hire Power 😇",
     blurb: "A job application app my team, ALTLab Angels, built together. The name's a pun on \"higher power,\" fitting for something meant to help land your next job.",
     images: [
-      "assets/hire-power/001.png",
-      "assets/hire-power/002.png",
-      "assets/hire-power/003.png",
-      "assets/hire-power/0035.png",
-      "assets/hire-power/004.png",
-      "assets/hire-power/005.png",
-      "assets/hire-power/006.png",
-      "assets/hire-power/007.png",
+      "/assets/hire-power/001.png",
+      "/assets/hire-power/002.png",
+      "/assets/hire-power/003.png",
+      "/assets/hire-power/0035.png",
+      "/assets/hire-power/004.png",
+      "/assets/hire-power/005.png",
+      "/assets/hire-power/006.png",
+      "/assets/hire-power/007.png",
     ],
   },
   snowsocial: {
@@ -344,68 +344,68 @@ const GAMES = {
     name: "Plants vs. Zombies",
     emoji: "🌻",
     blurb: "A tower-defense classic where you line up sunflowers, peashooters, and oddball plants to stop a goofy zombie invasion from reaching your house.",
-    image: "assets/games/plants-vs-zombies.jpg",
+    image: "/assets/games/plants-vs-zombies.jpg",
   },
   minecraft: {
     name: "Minecraft",
     emoji: "⛏️",
     blurb: "A blocky sandbox where you mine, craft, build, and survive in a procedurally generated world that's basically unlimited digital Legos.",
-    image: "assets/games/minecraft.webp",
+    image: "/assets/games/minecraft.webp",
   },
   roblox: {
     name: "Roblox",
     emoji: "🎮",
     blurb: "A platform of millions of user-made games, from obbies to tycoons to full RPGs, all built by its own massive community.",
-    image: "assets/games/roblox.jpg",
+    image: "/assets/games/roblox.jpg",
   },
   "rollercoaster-tycoon": {
     name: "RollerCoaster Tycoon",
     emoji: "🎢",
     blurb: "A park-building sim where you design coasters, manage guests, and try not to build a loop so intense it makes everyone throw up.",
-    image: "assets/games/rollercoaster-tycoon.jpg",
+    image: "/assets/games/rollercoaster-tycoon.jpg",
   },
   "cities-skylines": {
     name: "Cities: Skylines",
     emoji: "🏙️",
     blurb: "A city-builder about zoning, traffic, and budgets, where the real challenge is untangling gridlock at 2 a.m.",
-    image: "assets/games/cities-skylines.webp",
+    image: "/assets/games/cities-skylines.webp",
   },
   "sims-4": {
     name: "The Sims 4",
     emoji: "🏡",
     blurb: "A life simulator where you build houses, craft Sims, and guide their chaotic little lives, often straight into the pool with the ladder removed.",
-    image: "assets/games/sims-4.png",
+    image: "/assets/games/sims-4.png",
   },
   "stardew-valley": {
     name: "Stardew Valley",
     emoji: "🌾",
     blurb: "A cozy farming sim about planting crops, befriending townsfolk, and slowly turning a run-down farm into a thriving homestead.",
-    image: "assets/games/stardew-valley.jpg",
+    image: "/assets/games/stardew-valley.jpg",
   },
   celeste: {
     name: "Celeste",
     emoji: "🏔️",
     blurb: "A precision platformer about climbing a mountain, with tight controls and a story about anxiety and self-doubt wrapped into every jump.",
-    image: "assets/games/celeste.png",
+    image: "/assets/games/celeste.png",
   },
   "chrono-trigger": {
     name: "Chrono Trigger",
     emoji: "⏳",
     blurb: "A beloved SNES-era RPG about time travel, with a battle system and story still held up as one of the genre's best.",
-    image: "assets/games/chrono-trigger.jpg",
+    image: "/assets/games/chrono-trigger.jpg",
   },
   "final-fantasy-7": {
     name: "Final Fantasy 7",
     emoji: "⚔️",
     blurb: "A landmark RPG following Cloud and an eco-terrorist resistance against a monolithic energy conglomerate, later remade for modern platforms.",
-    image: "assets/games/final-fantasy-7.jpg",
+    image: "/assets/games/final-fantasy-7.jpg",
   },
 };
 
 const RECIPES = {
   "chicken-noodle-soup": {
     title: "Chicken Noodle Soup",
-    image: "assets/chicken-noodle-soup.jpg",
+    image: "/assets/chicken-noodle-soup.jpg",
     ingredients: [
       "1 tbsp olive oil",
       "1 onion, diced",
@@ -581,15 +581,16 @@ document.addEventListener("DOMContentLoaded", () => {
     setTheme(!document.documentElement.classList.contains("dark-mode"));
   });
 
-  const current = window.location.pathname.split("/").pop() || "index.html";
+  const currentSegment = window.location.pathname.split("/").filter(Boolean)[0] || "";
   const subpageParents = {
-    "facts.html": "fun.html",
-    "recipe.html": "fun.html",
-    "game.html": "fun.html",
-    "music.html": "fun.html",
-    "project.html": "projects.html",
+    facts: "fun",
+    recipe: "fun",
+    game: "fun",
+    music: "fun",
+    project: "projects",
   };
-  const activeHref = subpageParents[current] || current;
+  const activeSegment = subpageParents[currentSegment] || currentSegment;
+  const activeHref = activeSegment ? `/${activeSegment}/` : "/";
   document.querySelectorAll(".nav-links a").forEach((link) => {
     if (link.getAttribute("href") === activeHref) {
       link.classList.add("active");
