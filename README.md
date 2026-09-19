@@ -32,6 +32,24 @@ To stop:
 docker compose down
 ```
 
+### Thai handwriting practice (optional, local only)
+
+The Thai language page (`/facts/?lang=thai`, Writing & Basics → Practice tab) has a
+"draw the word, check it against a real OCR model" widget. It calls a small Flask
+service in `ocr/` running a pretrained Thai handwriting model
+([openthaigpt/thai-trocr](https://huggingface.co/openthaigpt/thai-trocr)). It's
+behind a Docker Compose profile since it pulls in PyTorch/transformers and isn't
+needed for normal site work, and it only runs locally — there's no backend once
+the site is deployed to GitHub Pages, so the widget just shows a friendly
+"can't reach the practice server" message there.
+
+```bash
+docker compose --profile ocr up -d
+```
+
+First run downloads model weights (cached in a named volume afterward). The
+widget expects the service at `http://localhost:5050`.
+
 ## Structure
 
 ```

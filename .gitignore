@@ -6,3 +6,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Python (ocr service)
+__pycache__/
+*.pyc

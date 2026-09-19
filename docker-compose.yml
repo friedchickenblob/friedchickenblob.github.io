@@ -3,3 +3,15 @@ services:
     build: .
     ports:
       - "8090:80"
+
+  ocr:
+    build: ./ocr
+    ports:
+      - "5050:5000"
+    volumes:
+      - huggingface-cache:/root/.cache/huggingface
+    profiles:
+      - ocr
+
+volumes:
+  huggingface-cache:
