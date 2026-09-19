@@ -772,3 +772,119 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function getMainFocusables() {
+  return Array.from(document.querySelectorAll("main a[href], main button")).filter(
+    (el) => el.offsetParent !== null
+  );
+}
+
+function findInDirection(current, direction, candidates) {
+  const rect = current.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  let best = null;
+  let bestScore = Infinity;
+
+  candidates.forEach((el) => {
+    if (el === current) return;
+    const r = el.getBoundingClientRect();
+    const ex = r.left + r.width / 2;
+    const ey = r.top + r.height / 2;
+    const dx = ex - cx;
+    const dy = ey - cy;
+    let primary;
+    let secondary;
+
+    if (direction === "left") {
+      if (dx >= -1) return;
+      primary = -dx;
+      secondary = Math.abs(dy);
+    } else if (direction === "right") {
+      if (dx <= 1) return;
+      primary = dx;
+      secondary = Math.abs(dy);
+    } else if (direction === "up") {
+      if (dy >= -1) return;
+      primary = -dy;
+      secondary = Math.abs(dx);
+    } else {
+      if (dy <= 1) return;
+      primary = dy;
+      secondary = Math.abs(dx);
+    }
+
+    const score = primary + secondary * 4;
+    if (score < bestScore) {
+      bestScore = score;
+      best = el;
+    }
+  });
+
+  return best;
+}
+
+document.addEventListener("keydown", (e) => {
+  const activeTag = document.activeElement ? document.activeElement.tagName : "";
+  if (activeTag === "INPUT" || activeTag === "TEXTAREA" || (document.activeElement && document.activeElement.isContentEditable)) {
+    return;
+  }
+
+  const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+
+  if (key === "/" || key === "'") {
+    e.preventDefault();
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    if (!navLinks.length) return;
+
+    let idx = navLinks.indexOf(document.activeElement);
+    if (idx === -1) idx = navLinks.findIndex((a) => a.classList.contains("active"));
+    if (idx === -1) idx = 0;
+
+    const delta = key === "/" ? -1 : 1;
+    idx = (idx + delta + navLinks.length) % navLinks.length;
+    navLinks[idx].focus();
+    return;
+  }
+
+  if (key === "a" || key === "d" || key === "w" || key === "s") {
+    e.preventDefault();
+    const current = document.activeElement;
+    const isTabButton = current && current.matches && current.matches(".tab-buttons button");
+
+    if (key === "s" && isTabButton) {
+      current.click();
+      const panel = document.getElementById(current.getAttribute("data-tab"));
+      const firstFocusable = panel ? panel.querySelector("a[href], button") : null;
+      if (firstFocusable) firstFocusable.focus();
+      return;
+    }
+
+    const candidates = getMainFocusables();
+    if (!candidates.length) return;
+
+    const from = candidates.includes(current) ? current : null;
+    if (!from) {
+      candidates[0].focus();
+      return;
+    }
+
+    const dirMap = { a: "left", d: "right", w: "up", s: "down" };
+    const next = findInDirection(from, dirMap[key], candidates);
+    if (next) next.focus();
+    return;
+  }
+
+  if (key === " ") {
+    const current = document.activeElement;
+    if (current && current.tagName === "A") {
+      e.preventDefault();
+      current.click();
+    }
+    return;
+  }
+
+  if (e.key === "Shift") {
+    window.history.back();
+  }
+});
