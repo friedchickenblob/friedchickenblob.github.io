@@ -111,25 +111,65 @@ const LANGUAGE_FACTS = {
       "The modern Vietnamese alphabet, Chữ Quốc Ngữ, is based on the Latin script and was developed by a 17th-century Portuguese-French missionary.",
     ],
     basics: {
-      writing: "Vietnamese uses the Latin alphabet plus extra marked letters and 6 tone marks — Chữ Quốc Ngữ.",
-      groups: [
+      writing: "Vietnamese uses the Latin alphabet (29 letters), digraphs for sounds one letter can't cover, and 6 tones — Chữ Quốc Ngữ.",
+      note: "IPA is for Northern (Hanoi) pronunciation; Southern Vietnamese differs for a few letters, noted as (S: ...) below.",
+      tabbed: true,
+      tabs: [
         {
-          label: "Special Letters",
-          items: [
-            { ch: "ă", t: "short a" }, { ch: "â", t: "short ơ" }, { ch: "đ", t: "d with a stroke" },
-            { ch: "ê", t: "closer e" }, { ch: "ô", t: "closer o" }, { ch: "ơ", t: "unrounded o" },
-            { ch: "ư", t: "unrounded u" },
+          key: "alphabet",
+          label: "Alphabet",
+          groups: [
+            {
+              label: "Vowels",
+              items: [
+                { ch: "a", t: "aː" }, { ch: "ă", t: "a (short)" }, { ch: "â", t: "ɤ̆ (short)" },
+                { ch: "e", t: "ɛ" }, { ch: "ê", t: "e" }, { ch: "i", t: "i" }, { ch: "y", t: "i" },
+                { ch: "o", t: "ɔ" }, { ch: "ô", t: "o" }, { ch: "ơ", t: "ɤː" }, { ch: "u", t: "u" },
+                { ch: "ư", t: "ɯ" },
+              ],
+            },
+            {
+              label: "Consonants",
+              items: [
+                { ch: "b", t: "ɓ" }, { ch: "c", t: "k" }, { ch: "d", t: "z (S: j)" }, { ch: "đ", t: "ɗ" },
+                { ch: "g", t: "ɣ" }, { ch: "h", t: "h" }, { ch: "k", t: "k" }, { ch: "l", t: "l" },
+                { ch: "m", t: "m" }, { ch: "n", t: "n" }, { ch: "p", t: "p" }, { ch: "q", t: "k (always \"qu\")" },
+                { ch: "r", t: "z (S: r)" }, { ch: "s", t: "s (S: ʂ)" }, { ch: "t", t: "t" }, { ch: "v", t: "v" },
+                { ch: "x", t: "s" },
+              ],
+            },
           ],
         },
         {
-          label: "Tones (with ma)",
-          items: [
-            { ch: "ma", t: "level — ghost" },
-            { ch: "mà", t: "low falling — but" },
-            { ch: "má", t: "high rising — mother/cheek" },
-            { ch: "mả", t: "dipping-rising — grave" },
-            { ch: "mã", t: "creaky rising — code/horse" },
-            { ch: "mạ", t: "low glottalized — rice seedling" },
+          key: "digraphs",
+          label: "Digraphs",
+          groups: [
+            {
+              label: "Consonant Digraphs",
+              items: [
+                { ch: "ch", t: "tɕ" }, { ch: "gh", t: "ɣ (before e/ê/i)" }, { ch: "gi", t: "z (S: j)" },
+                { ch: "kh", t: "x" }, { ch: "ng", t: "ŋ" }, { ch: "ngh", t: "ŋ (before e/ê/i)" },
+                { ch: "nh", t: "ɲ" }, { ch: "ph", t: "f" }, { ch: "qu", t: "kw" }, { ch: "th", t: "tʰ" },
+                { ch: "tr", t: "tʂ (N merges with ch: tɕ)" },
+              ],
+            },
+          ],
+        },
+        {
+          key: "tones",
+          label: "Tones",
+          groups: [
+            {
+              label: "Tones (with ma)",
+              items: [
+                { ch: "ma", t: "level — ghost" },
+                { ch: "mà", t: "low falling — but" },
+                { ch: "má", t: "high rising — mother/cheek" },
+                { ch: "mả", t: "dipping-rising — grave" },
+                { ch: "mã", t: "creaky rising — code/horse" },
+                { ch: "mạ", t: "low glottalized — rice seedling" },
+              ],
+            },
           ],
         },
       ],
