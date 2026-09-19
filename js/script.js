@@ -255,7 +255,7 @@ const LANGUAGE_FACTS = {
 
 const MUSIC = {
   seasons: {
-    name: "Seasons",
+    name: "Seasonz",
     tracks: [
       { title: "Yuki no Hana", subtitle: "Winter", type: "spotify", id: "6Zyizxfz4NXdCgVLwhuBNw" },
       { title: "Lilac", subtitle: "Spring", type: "spotify", id: "5xrtzzzikpG3BLbo4q1Yul" },
@@ -264,7 +264,7 @@ const MUSIC = {
     ],
   },
   albums: {
-    name: "Albums",
+    name: "Albumz",
     tracks: [
       { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
       { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
@@ -291,7 +291,7 @@ const MUSIC = {
     ],
   },
   singles: {
-    name: "Singles",
+    name: "Singlez",
     tracks: [
       { title: "Nếu lúc đó", subtitle: "tlinh ft. 2pillz", type: "youtube", id: "fyMgBQioTLo" },
       { title: "Introvert", subtitle: "Little Simz", type: "youtube", id: "hxfGQ2AJHGk" },
