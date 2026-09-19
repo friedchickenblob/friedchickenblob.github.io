@@ -773,6 +773,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function getSiteNavDepth() {
+  if (history.state && typeof history.state.navDepth === "number") {
+    return history.state.navDepth;
+  }
+
+  let prevMax = 0;
+  try {
+    prevMax = parseInt(sessionStorage.getItem("navDepthMax") || "0", 10);
+  } catch (err) {
+    prevMax = 0;
+  }
+
+  const depth = prevMax + 1;
+  history.replaceState({ navDepth: depth }, "", location.href);
+
+  try {
+    sessionStorage.setItem("navDepthMax", String(depth));
+  } catch (err) {
+    // ignore storage errors (e.g. private browsing)
+  }
+
+  return depth;
+}
+
+getSiteNavDepth();
+
 function getMainFocusables() {
   return Array.from(document.querySelectorAll("main a[href], main button")).filter(
     (el) => el.offsetParent !== null
@@ -885,7 +911,9 @@ document.addEventListener("keydown", (e) => {
   }
 
   if (e.key === "Shift") {
-    window.history.back();
+    if (getSiteNavDepth() > 1) {
+      window.history.back();
+    }
     return;
   }
 
