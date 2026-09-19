@@ -744,20 +744,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const tabButtons = document.querySelectorAll(".tab-buttons button");
+
+  function activateTab(target) {
+    tabButtons.forEach((btn) => {
+      const isTarget = btn.getAttribute("data-tab") === target;
+      btn.classList.toggle("active", isTarget);
+      btn.setAttribute("aria-selected", isTarget ? "true" : "false");
+    });
+    document.querySelectorAll(".tab-panel").forEach((panel) => {
+      panel.classList.toggle("active", panel.id === target);
+    });
+  }
+
+  if (tabButtons.length) {
+    const savedTab = localStorage.getItem("funActiveTab");
+    if (savedTab && document.getElementById(savedTab)) {
+      activateTab(savedTab);
+    }
+  }
+
   tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const target = button.getAttribute("data-tab");
-
-      tabButtons.forEach((btn) => {
-        btn.classList.remove("active");
-        btn.setAttribute("aria-selected", "false");
-      });
-      button.classList.add("active");
-      button.setAttribute("aria-selected", "true");
-
-      document.querySelectorAll(".tab-panel").forEach((panel) => {
-        panel.classList.toggle("active", panel.id === target);
-      });
+      localStorage.setItem("funActiveTab", target);
+      activateTab(target);
     });
   });
 });
