@@ -581,6 +581,94 @@ document.addEventListener("DOMContentLoaded", () => {
     setTheme(!document.documentElement.classList.contains("dark-mode"));
   });
 
+  const SHORTCUTS = [
+    { keys: ["'"], desc: "Previous nav item" },
+    { keys: ["/"], desc: "Next nav item" },
+    { keys: ["W", "A", "S", "D"], desc: "Move between items" },
+    { keys: ["S"], desc: "Jump into a focused tab" },
+    { keys: ["Space"], desc: "Activate focused link" },
+    { keys: ["Enter"], desc: "Activate focused link/button" },
+    { keys: ["Shift"], desc: "Go back" },
+    { keys: ["Right Ctrl"], desc: "Go forward" },
+    { keys: ["Esc"], desc: "Close this dialog" },
+  ];
+
+  const helpFab = document.createElement("button");
+  helpFab.type = "button";
+  helpFab.className = "help-fab";
+  helpFab.setAttribute("aria-label", "Keyboard shortcuts");
+  helpFab.textContent = "?";
+  document.body.appendChild(helpFab);
+
+  const helpOverlay = document.createElement("div");
+  helpOverlay.className = "help-modal-overlay";
+
+  const helpModal = document.createElement("div");
+  helpModal.className = "help-modal";
+  helpModal.setAttribute("role", "dialog");
+  helpModal.setAttribute("aria-modal", "true");
+  helpModal.setAttribute("aria-label", "Keyboard shortcuts");
+
+  const helpHeader = document.createElement("div");
+  helpHeader.className = "help-modal-header";
+  helpHeader.innerHTML = "<h2>Keyboard Shortcuts</h2>";
+
+  const helpClose = document.createElement("button");
+  helpClose.type = "button";
+  helpClose.className = "help-modal-close";
+  helpClose.setAttribute("aria-label", "Close");
+  helpClose.textContent = "×";
+  helpHeader.appendChild(helpClose);
+  helpModal.appendChild(helpHeader);
+
+  const helpList = document.createElement("ul");
+  helpList.className = "help-shortcut-list";
+  SHORTCUTS.forEach((shortcut) => {
+    const item = document.createElement("li");
+
+    const keysWrap = document.createElement("span");
+    keysWrap.className = "help-shortcut-keys";
+    shortcut.keys.forEach((k) => {
+      const kbd = document.createElement("span");
+      kbd.className = "help-key";
+      kbd.textContent = k;
+      keysWrap.appendChild(kbd);
+    });
+
+    const descSpan = document.createElement("span");
+    descSpan.className = "help-shortcut-desc";
+    descSpan.textContent = shortcut.desc;
+
+    item.appendChild(keysWrap);
+    item.appendChild(descSpan);
+    helpList.appendChild(item);
+  });
+  helpModal.appendChild(helpList);
+
+  helpOverlay.appendChild(helpModal);
+  document.body.appendChild(helpOverlay);
+
+  function openHelp() {
+    helpOverlay.classList.add("open");
+    helpClose.focus();
+  }
+
+  function closeHelp() {
+    helpOverlay.classList.remove("open");
+    helpFab.focus();
+  }
+
+  helpFab.addEventListener("click", openHelp);
+  helpClose.addEventListener("click", closeHelp);
+  helpOverlay.addEventListener("click", (e) => {
+    if (e.target === helpOverlay) closeHelp();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && helpOverlay.classList.contains("open")) {
+      closeHelp();
+    }
+  });
+
   const currentSegment = window.location.pathname.split("/").filter(Boolean)[0] || "";
   const subpageParents = {
     facts: "fun",
@@ -851,6 +939,10 @@ function findInDirection(current, direction, candidates) {
 }
 
 document.addEventListener("keydown", (e) => {
+  if (document.querySelector(".help-modal-overlay.open")) {
+    return;
+  }
+
   const activeTag = document.activeElement ? document.activeElement.tagName : "";
   if (activeTag === "INPUT" || activeTag === "TEXTAREA" || (document.activeElement && document.activeElement.isContentEditable)) {
     return;
