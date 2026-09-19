@@ -886,5 +886,10 @@ document.addEventListener("keydown", (e) => {
 
   if (e.key === "Shift") {
     window.history.back();
+    return;
+  }
+
+  if (e.code === "ControlRight") {
+    window.history.forward();
   }
 });
