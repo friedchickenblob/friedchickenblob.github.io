@@ -167,6 +167,20 @@ const LANGUAGE_FACTS = {
       "Malay was traditionally written in the Jawi script, an Arabic-based alphabet, before the Latin-based Rumi script became standard.",
     ],
   },
+  jordan: {
+    name: "Jordanian Arabic",
+    facts: [
+      "Jordanian Arabic is a Levantine dialect, close enough to Palestinian and Syrian Arabic that speakers can generally understand each other with ease.",
+      "Like other spoken Arabic dialects, it differs from Modern Standard Arabic in everyday vocabulary, pronunciation, and grammar, even though both use the same script.",
+    ],
+  },
+  uae: {
+    name: "Emirati Arabic",
+    facts: [
+      "Emirati Arabic is a Gulf dialect shared with neighboring countries, shaped historically by trade routes across the Arabian Peninsula and Indian Ocean.",
+      "Because expatriates make up most of the UAE's population, Emirati Arabic speakers are often a linguistic minority in their own cities, alongside widely spoken English, Hindi, and Urdu.",
+    ],
+  },
   arabic: {
     name: "Modern Standard Arabic",
     facts: [
