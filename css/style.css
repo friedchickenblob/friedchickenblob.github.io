@@ -339,6 +339,26 @@ h1 {
     max-width: calc((100% - 2rem) / 3);
     justify-self: center;
   }
+
+  #games .tile-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+  }
+
+  #games .tile-card {
+    padding: 0.85rem 0.5rem;
+    gap: 0.3rem;
+  }
+
+  #games .tile-emoji {
+    font-size: 1.7rem;
+  }
+
+  #games .tile-grid > :last-child:nth-child(3n + 1) {
+    grid-column: auto;
+    max-width: none;
+    justify-self: auto;
+  }
 }
 
 .tile-card {
@@ -384,10 +404,19 @@ h1 {
 
 .music-plus-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 180px));
+  grid-template-columns: repeat(3, minmax(100px, 150px));
   grid-template-rows: repeat(3, auto);
-  gap: 1rem;
+  gap: 0.6rem;
   justify-content: center;
+}
+
+#music .tile-card {
+  padding: 1rem 0.6rem;
+  gap: 0.35rem;
+}
+
+#music .tile-emoji {
+  font-size: 1.8rem;
 }
 
 .music-plus-top {
