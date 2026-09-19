@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="chicken/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="chicken/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="chicken/apple-touch-icon.png" />
+  <link rel="icon" href="chicken/favicon.ico" />
+  <link rel="manifest" href="chicken/site.webmanifest" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="index.html">jordan 🐔 kwan</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">home</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="experience.html">experience</a></li>
+        <li><a href="fun.html">fun</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <main>
+      <h1>fun</h1>
+
+      <div class="tab-buttons" role="tablist">
+        <button type="button" class="active" data-tab="languages" role="tab" aria-selected="true">languages</button>
+        <button type="button" data-tab="music" role="tab" aria-selected="false">music</button>
+        <button type="button" data-tab="games" role="tab" aria-selected="false">games</button>
+        <button type="button" data-tab="food" role="tab" aria-selected="false">food</button>
+      </div>
+
+      <section id="languages" class="tab-panel active" role="tabpanel">
+        <div class="tile-grid">
+          <a class="tile-card" href="facts.html?lang=thai">
+            <span class="tile-name">Thai</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Thailand">
+              <rect width="30" height="20" fill="#a51931" />
+              <rect y="3.33" width="30" height="13.34" fill="#f4f5f8" />
+              <rect y="6.67" width="30" height="6.67" fill="#2d2a4a" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=vietnamese">
+            <span class="tile-name">Vietnamese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Vietnam">
+              <rect width="30" height="20" fill="#da251d" />
+              <polygon points="15,4 16.76,9.42 22.46,9.42 17.85,12.76 19.61,18.18 15,14.84 10.39,18.18 12.15,12.76 7.54,9.42 13.24,9.42" fill="#ff0" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=japanese">
+            <span class="tile-name">Japanese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Japan">
+              <rect width="30" height="20" fill="#fff" />
+              <circle cx="15" cy="10" r="6" fill="#bc002d" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=cantonese">
+            <span class="tile-name">Cantonese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Hong Kong">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#fff">
+                <ellipse cx="15" cy="6.6" rx="2.1" ry="4.2" transform="rotate(0 15 10)" />
+                <ellipse cx="15" cy="6.6" rx="2.1" ry="4.2" transform="rotate(72 15 10)" />
+                <ellipse cx="15" cy="6.6" rx="2.1" ry="4.2" transform="rotate(144 15 10)" />
+                <ellipse cx="15" cy="6.6" rx="2.1" ry="4.2" transform="rotate(216 15 10)" />
+                <ellipse cx="15" cy="6.6" rx="2.1" ry="4.2" transform="rotate(288 15 10)" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=taiwanese">
+            <span class="tile-name">Taiwanese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Taiwan">
+              <rect width="30" height="20" fill="#fe0000" />
+              <rect width="13" height="10" fill="#000095" />
+              <circle cx="6.5" cy="5" r="2.2" fill="#fff" />
+              <g stroke="#fff" stroke-width="0.5">
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(0 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(30 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(60 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(90 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(120 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(150 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(180 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(210 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(240 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(270 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(300 6.5 5)" />
+                <line x1="6.5" y1="1.3" x2="6.5" y2="2.3" transform="rotate(330 6.5 5)" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=singaporean">
+            <span class="tile-name">Singaporean</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Singapore">
+              <rect width="30" height="10" fill="#ed2939" />
+              <rect y="10" width="30" height="10" fill="#fff" />
+              <circle cx="7" cy="5" r="2.6" fill="#fff" />
+              <circle cx="7.9" cy="4.6" r="2.6" fill="#ed2939" />
+              <g fill="#fff">
+                <polygon points="9.7,2.65 9.829,3.022 10.223,3.030 9.909,3.268 10.023,3.645 9.7,3.42 9.377,3.645 9.491,3.268 9.177,3.030 9.571,3.022" />
+                <polygon points="11.412,3.894 11.541,4.266 11.935,4.274 11.621,4.512 11.735,4.889 11.412,4.664 11.089,4.889 11.203,4.512 10.889,4.274 11.283,4.266" />
+                <polygon points="10.758,5.906 10.887,6.278 11.281,6.286 10.967,6.524 11.081,6.901 10.758,6.676 10.435,6.901 10.549,6.524 10.235,6.286 10.629,6.278" />
+                <polygon points="8.642,5.906 8.771,6.278 9.165,6.286 8.851,6.524 8.965,6.901 8.642,6.676 8.319,6.901 8.433,6.524 8.119,6.286 8.513,6.278" />
+                <polygon points="7.988,3.894 8.117,4.266 8.511,4.274 8.197,4.512 8.311,4.889 7.988,4.664 7.665,4.889 7.779,4.512 7.465,4.274 7.859,4.266" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=hokkien">
+            <span class="tile-name">Hokkien</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=teochew">
+            <span class="tile-name">Teochew</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=fuzhounese">
+            <span class="tile-name">Fuzhounese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=putian">
+            <span class="tile-name">Putian</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=hainanese">
+            <span class="tile-name">Hainanese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=hakka">
+            <span class="tile-name">Hakka</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=taishanese">
+            <span class="tile-name">Taishanese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=shanghainese">
+            <span class="tile-name">Shanghainese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=mandarin">
+            <span class="tile-name">Mandarin</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of China">
+              <rect width="30" height="20" fill="#de2910" />
+              <g fill="#ffde00">
+                <polygon points="6,2.5 6.95,5.41 10,5.41 7.53,7.23 8.47,10.15 6,8.34 3.53,10.15 4.47,7.23 2,5.41 5.05,5.41" />
+                <polygon points="11.5,2.2 11.85,3.28 12.98,3.28 12.07,3.94 12.41,5.02 11.5,4.36 10.59,5.02 10.93,3.94 10.02,3.28 11.15,3.28" />
+                <polygon points="13.5,5.5 13.85,6.58 14.98,6.58 14.07,7.24 14.41,8.32 13.5,7.66 12.59,8.32 12.93,7.24 12.02,6.58 13.15,6.58" />
+                <polygon points="13.3,9.7 13.65,10.78 14.78,10.78 13.87,11.44 14.21,12.52 13.3,11.86 12.39,12.52 12.73,11.44 11.82,10.78 12.95,10.78" />
+                <polygon points="10.8,12.6 11.15,13.68 12.28,13.68 11.37,14.34 11.71,15.42 10.8,14.76 9.89,15.42 10.23,14.34 9.32,13.68 10.45,13.68" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=indonesian">
+            <span class="tile-name">Indonesian</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Indonesia">
+              <rect width="30" height="10" fill="#ce1126" />
+              <rect y="10" width="30" height="10" fill="#fff" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=south-korean">
+            <span class="tile-name">South Korean</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of South Korea">
+              <rect width="30" height="20" fill="#fff" />
+              <circle cx="15" cy="10" r="4" fill="#c60c30" />
+              <path d="M15,6 a2,2 0 1,1 0,4 a2,2 0 1,0 0,4 a4,4 0 0,0 0,-8" fill="#003478" />
+              <g fill="#000">
+                <rect x="3" y="3" width="3.6" height="0.6" /><rect x="3" y="4.1" width="3.6" height="0.6" /><rect x="3" y="5.2" width="3.6" height="0.6" />
+                <rect x="23.4" y="14.8" width="1.5" height="0.6" /><rect x="25.4" y="14.8" width="1.5" height="0.6" />
+                <rect x="23.4" y="15.9" width="1.5" height="0.6" /><rect x="25.4" y="15.9" width="1.5" height="0.6" />
+                <rect x="23.4" y="17" width="1.5" height="0.6" /><rect x="25.4" y="17" width="1.5" height="0.6" />
+                <rect x="23.4" y="3" width="1.5" height="0.6" /><rect x="25.4" y="3" width="1.5" height="0.6" />
+                <rect x="23.4" y="4.1" width="3.6" height="0.6" />
+                <rect x="23.4" y="5.2" width="1.5" height="0.6" /><rect x="25.4" y="5.2" width="1.5" height="0.6" />
+                <rect x="3" y="14.8" width="3.6" height="0.6" />
+                <rect x="3" y="15.9" width="1.5" height="0.6" /><rect x="5" y="15.9" width="1.5" height="0.6" />
+                <rect x="3" y="17" width="3.6" height="0.6" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=north-korean">
+            <span class="tile-name">North Korean</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of North Korea">
+              <rect width="30" height="20" fill="#ed1c27" />
+              <rect width="30" height="2" fill="#024fa2" />
+              <rect y="2" width="30" height="1" fill="#fff" />
+              <rect y="17" width="30" height="1" fill="#fff" />
+              <rect y="18" width="30" height="2" fill="#024fa2" />
+              <circle cx="8" cy="10" r="3" fill="#fff" />
+              <polygon points="8,8.4 8.382,9.474 9.522,9.506 8.618,10.201 8.940,11.294 8,10.65 7.060,11.294 7.382,10.201 6.478,9.506 7.618,9.474" fill="#ed1c27" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=tagalog">
+            <span class="tile-name">Tagalog</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the Philippines">
+              <rect width="30" height="10" fill="#0038a8" />
+              <rect y="10" width="30" height="10" fill="#ce1126" />
+              <polygon points="0,0 13,10 0,20" fill="#fff" />
+              <circle cx="5" cy="10" r="1.6" fill="#fcd116" />
+              <polygon points="2.5,2.1 2.665,2.574 3.166,2.584 2.766,2.886 2.911,3.366 2.5,3.08 2.089,3.366 2.234,2.886 1.834,2.584 2.335,2.574" fill="#fcd116" />
+              <polygon points="2.5,16.5 2.665,16.974 3.166,16.984 2.766,17.286 2.911,17.766 2.5,17.48 2.089,17.766 2.234,17.286 1.834,16.984 2.335,16.974" fill="#fcd116" />
+              <polygon points="9,9.3 9.165,9.774 9.666,9.784 9.266,10.086 9.411,10.566 9,10.28 8.589,10.566 8.734,10.086 8.334,9.784 8.835,9.774" fill="#fcd116" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=mongolian">
+            <span class="tile-name">Mongolian</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Mongolia">
+              <rect width="8" height="20" fill="#c4272f" />
+              <rect x="8" width="14" height="20" fill="#015197" />
+              <rect x="22" width="8" height="20" fill="#c4272f" />
+              <circle cx="4" cy="4" r="1.3" fill="#ffcc33" />
+              <circle cx="4" cy="7.5" r="1.1" fill="#ffcc33" />
+              <polygon points="4,9 3,12 5,12" fill="#ffcc33" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=lao">
+            <span class="tile-name">Lao</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Laos">
+              <rect width="30" height="5" fill="#ce1126" />
+              <rect y="5" width="30" height="10" fill="#002868" />
+              <rect y="15" width="30" height="5" fill="#ce1126" />
+              <circle cx="15" cy="10" r="3.5" fill="#fff" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=burmese">
+            <span class="tile-name">Burmese</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Myanmar">
+              <rect width="30" height="6.67" fill="#fecb00" />
+              <rect y="6.67" width="30" height="6.67" fill="#34b233" />
+              <rect y="13.34" width="30" height="6.66" fill="#ea2839" />
+              <polygon points="15,7 15.705,9.029 17.853,9.073 16.141,10.371 16.763,12.427 15,11.2 13.237,12.427 13.859,10.371 12.147,9.073 14.295,9.029" fill="#fff" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=khmer">
+            <span class="tile-name">Khmer</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Cambodia">
+              <rect width="30" height="5" fill="#032ea1" />
+              <rect y="5" width="30" height="10" fill="#e00025" />
+              <rect y="15" width="30" height="5" fill="#032ea1" />
+              <g fill="#fff">
+                <rect x="12.5" y="9.5" width="5" height="2.5" />
+                <polygon points="13,9.5 14,6.5 15,9.5" />
+                <polygon points="14.5,9.5 15,5.5 15.5,9.5" />
+                <polygon points="15,9.5 16,6.5 17,9.5" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=malay">
+            <span class="tile-name">Malay</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Malaysia">
+              <rect width="30" height="20" fill="#fff" />
+              <g fill="#cc0001">
+                <rect y="2.5" width="30" height="2.5" /><rect y="7.5" width="30" height="2.5" />
+                <rect y="12.5" width="30" height="2.5" /><rect y="17.5" width="30" height="2.5" />
+              </g>
+              <rect width="14" height="11" fill="#010066" />
+              <circle cx="6" cy="5" r="3" fill="#ffcc00" />
+              <circle cx="7" cy="4.3" r="3" fill="#010066" />
+              <polygon points="10,3.2 10.411,4.434 11.712,4.444 10.666,5.216 11.058,6.456 10,5.7 8.942,6.456 9.334,5.216 8.288,4.444 9.589,4.434" fill="#ffcc00" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=arabic">
+            <span class="tile-name">Modern Standard Arabic</span>
+            <span class="tile-emoji">🌐</span>
+          </a>
+          <a class="tile-card" href="facts.html?lang=hindi">
+            <span class="tile-name">Hindi</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of India">
+              <rect width="30" height="6.67" fill="#ff9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#138808" />
+              <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.3" />
+              <g stroke="#000080" stroke-width="0.2">
+                <line x1="15" y1="7.8" x2="15" y2="12.2" /><line x1="12.8" y1="10" x2="17.2" y2="10" />
+                <line x1="13.35" y1="8.35" x2="16.65" y2="11.65" /><line x1="16.65" y1="8.35" x2="13.35" y2="11.65" />
+                <line x1="14" y1="7.9" x2="16" y2="12.1" /><line x1="16" y1="7.9" x2="14" y2="12.1" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=bengali">
+            <span class="tile-name">Bengali</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Bangladesh">
+              <rect width="30" height="20" fill="#006a4e" />
+              <circle cx="13" cy="10" r="4.5" fill="#f42a41" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=urdu">
+            <span class="tile-name">Urdu</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Pakistan">
+              <rect width="30" height="20" fill="#01411c" />
+              <rect width="7.5" height="20" fill="#fff" />
+              <circle cx="18" cy="10" r="3" fill="#fff" />
+              <circle cx="19" cy="9.3" r="3" fill="#01411c" />
+              <polygon points="22,6.7 22.294,7.596 23.236,7.598 22.476,8.155 22.764,9.052 22,8.5 21.236,9.052 21.524,8.155 20.764,7.598 21.706,7.596" fill="#fff" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=punjabi">
+            <span class="tile-name">Punjabi</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of India">
+              <rect width="30" height="6.67" fill="#ff9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#138808" />
+              <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.3" />
+              <g stroke="#000080" stroke-width="0.2">
+                <line x1="15" y1="7.8" x2="15" y2="12.2" /><line x1="12.8" y1="10" x2="17.2" y2="10" />
+                <line x1="13.35" y1="8.35" x2="16.65" y2="11.65" /><line x1="16.65" y1="8.35" x2="13.35" y2="11.65" />
+                <line x1="14" y1="7.9" x2="16" y2="12.1" /><line x1="16" y1="7.9" x2="14" y2="12.1" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=telugu">
+            <span class="tile-name">Telugu</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of India">
+              <rect width="30" height="6.67" fill="#ff9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#138808" />
+              <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.3" />
+              <g stroke="#000080" stroke-width="0.2">
+                <line x1="15" y1="7.8" x2="15" y2="12.2" /><line x1="12.8" y1="10" x2="17.2" y2="10" />
+                <line x1="13.35" y1="8.35" x2="16.65" y2="11.65" /><line x1="16.65" y1="8.35" x2="13.35" y2="11.65" />
+                <line x1="14" y1="7.9" x2="16" y2="12.1" /><line x1="16" y1="7.9" x2="14" y2="12.1" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=marathi">
+            <span class="tile-name">Marathi</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of India">
+              <rect width="30" height="6.67" fill="#ff9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#138808" />
+              <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.3" />
+              <g stroke="#000080" stroke-width="0.2">
+                <line x1="15" y1="7.8" x2="15" y2="12.2" /><line x1="12.8" y1="10" x2="17.2" y2="10" />
+                <line x1="13.35" y1="8.35" x2="16.65" y2="11.65" /><line x1="16.65" y1="8.35" x2="13.35" y2="11.65" />
+                <line x1="14" y1="7.9" x2="16" y2="12.1" /><line x1="16" y1="7.9" x2="14" y2="12.1" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=tamil">
+            <span class="tile-name">Tamil</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of India">
+              <rect width="30" height="6.67" fill="#ff9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#138808" />
+              <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.3" />
+              <g stroke="#000080" stroke-width="0.2">
+                <line x1="15" y1="7.8" x2="15" y2="12.2" /><line x1="12.8" y1="10" x2="17.2" y2="10" />
+                <line x1="13.35" y1="8.35" x2="16.65" y2="11.65" /><line x1="16.65" y1="8.35" x2="13.35" y2="11.65" />
+                <line x1="14" y1="7.9" x2="16" y2="12.1" /><line x1="16" y1="7.9" x2="14" y2="12.1" />
+              </g>
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=farsi">
+            <span class="tile-name">Farsi</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Iran">
+              <rect width="30" height="6.67" fill="#239f40" />
+              <rect y="6.67" width="30" height="6.67" fill="#fff" />
+              <rect y="13.34" width="30" height="6.66" fill="#da0000" />
+            </svg>
+          </a>
+          <a class="tile-card" href="facts.html?lang=uzbek">
+            <span class="tile-name">Uzbek</span>
+            <svg class="tile-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of Uzbekistan">
+              <rect width="30" height="6.5" fill="#0099b5" />
+              <rect y="6.5" width="30" height="0.5" fill="#ce1126" />
+              <rect y="7" width="30" height="6" fill="#fff" />
+              <rect y="13" width="30" height="0.5" fill="#ce1126" />
+              <rect y="13.5" width="30" height="6.5" fill="#1eb53a" />
+              <circle cx="7" cy="3.2" r="1.8" fill="#fff" />
+              <circle cx="7.7" cy="2.8" r="1.8" fill="#0099b5" />
+              <circle cx="11" cy="2" r="0.35" fill="#fff" />
+              <circle cx="12.5" cy="2" r="0.35" fill="#fff" />
+              <circle cx="14" cy="2" r="0.35" fill="#fff" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="music" class="tab-panel" role="tabpanel">
+        <div class="music-plus-grid">
+          <a class="tile-card music-plus-top" href="music.html?category=seasons">
+            <span class="tile-emoji">🍁</span>
+            <span class="tile-name">seasons</span>
+          </a>
+          <a class="tile-card music-plus-left" href="music.html?category=albums">
+            <span class="tile-emoji">💿</span>
+            <span class="tile-name">albums</span>
+          </a>
+          <a class="tile-card music-plus-center" href="music.html?category=ep">
+            <span class="tile-emoji">📀</span>
+            <span class="tile-name">ep</span>
+          </a>
+          <a class="tile-card music-plus-right" href="music.html?category=singles">
+            <span class="tile-emoji">🎵</span>
+            <span class="tile-name">singles</span>
+          </a>
+          <a class="tile-card music-plus-bottom" href="music.html?category=luvsic">
+            <span class="tile-emoji">🎧</span>
+            <span class="tile-name">luv(sic) hexalogy</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="games" class="tab-panel" role="tabpanel">
+        <div class="tile-grid">
+          <a class="tile-card" href="game.html?game=plants-vs-zombies">
+            <span class="tile-name">Plants vs. Zombies</span>
+            <span class="tile-emoji">🌻</span>
+          </a>
+          <a class="tile-card" href="game.html?game=minecraft">
+            <span class="tile-name">Minecraft</span>
+            <span class="tile-emoji">⛏️</span>
+          </a>
+          <a class="tile-card" href="game.html?game=roblox">
+            <span class="tile-name">Roblox</span>
+            <span class="tile-emoji">🎮</span>
+          </a>
+          <a class="tile-card" href="game.html?game=rollercoaster-tycoon">
+            <span class="tile-name">RollerCoaster Tycoon</span>
+            <span class="tile-emoji">🎢</span>
+          </a>
+          <a class="tile-card" href="game.html?game=cities-skylines">
+            <span class="tile-name">Cities: Skylines</span>
+            <span class="tile-emoji">🏙️</span>
+          </a>
+          <a class="tile-card" href="game.html?game=sims-4">
+            <span class="tile-name">The Sims 4</span>
+            <span class="tile-emoji">🏡</span>
+          </a>
+          <a class="tile-card" href="game.html?game=stardew-valley">
+            <span class="tile-name">Stardew Valley</span>
+            <span class="tile-emoji">🌾</span>
+          </a>
+          <a class="tile-card" href="game.html?game=celeste">
+            <span class="tile-name">Celeste</span>
+            <span class="tile-emoji">🏔️</span>
+          </a>
+          <a class="tile-card" href="game.html?game=chrono-trigger">
+            <span class="tile-name">Chrono Trigger</span>
+            <span class="tile-emoji">⏳</span>
+          </a>
+          <a class="tile-card" href="game.html?game=final-fantasy-7">
+            <span class="tile-name">Final Fantasy 7</span>
+            <span class="tile-emoji">⚔️</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="food" class="tab-panel" role="tabpanel">
+        <div class="tile-grid">
+          <a class="tile-card" href="recipe.html?dish=chicken-noodle-soup">
+            <span class="tile-name">Chicken Noodle Soup</span>
+            <span class="tile-emoji">🍜</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Jordan 🐔 Kwan
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

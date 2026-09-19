@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="chicken/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="chicken/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="chicken/apple-touch-icon.png" />
+  <link rel="icon" href="chicken/favicon.ico" />
+  <link rel="manifest" href="chicken/site.webmanifest" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="index.html">jordan 🐔 kwan</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">home</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="experience.html">experience</a></li>
+        <li><a href="fun.html">fun</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <main>
+      <a class="back-link" href="fun.html">&larr; Back to Fun</a>
+      <h1 id="game-title">Game</h1>
+      <p class="game-emoji" id="game-emoji"></p>
+      <p id="game-blurb"></p>
+      <img class="game-image" id="game-image" alt="" />
+    </main>
+
+    <footer>
+      &copy; 2026 Jordan 🐔 Kwan
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
