@@ -841,7 +841,7 @@ document.addEventListener("keydown", (e) => {
     if (idx === -1) idx = navLinks.findIndex((a) => a.classList.contains("active"));
     if (idx === -1) idx = 0;
 
-    const delta = key === "/" ? -1 : 1;
+    const delta = key === "'" ? -1 : 1;
     idx = (idx + delta + navLinks.length) % navLinks.length;
     navLinks[idx].focus();
     return;
