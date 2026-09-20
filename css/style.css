@@ -369,15 +369,31 @@ main {
   text-align: center;
 }
 
-.hero img {
+.hero-img-toggle {
+  display: inline-block;
   max-width: 320px;
+  width: 100%;
+  margin: 1.5rem 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.hero-img-toggle:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.hero img {
+  display: block;
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  margin: 1.5rem 0;
 }
 
-.hero-img-dark {
+.hero .hero-img-dark {
   display: none;
 }
 
@@ -386,7 +402,7 @@ html.dark-mode .hero-img-light {
 }
 
 html.dark-mode .hero-img-dark {
-  display: inline-block;
+  display: block;
 }
 
 .hero h1 {
@@ -951,13 +967,33 @@ h1 {
   margin: 0 0 0.5rem;
 }
 
+/* The whole card is clickable on the projects page, so the border/
+   background moves from the <li> onto the link itself (letting it lift
+   together on hover), and the <li> just becomes a plain wrapper. */
+.fact-list li:has(> .project-link) {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 .project-link {
-  color: var(--accent);
+  display: block;
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: var(--text);
   text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 .project-link:hover {
-  text-decoration: underline;
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.project-link .project-name {
+  color: var(--accent);
 }
 
 .video-embed {

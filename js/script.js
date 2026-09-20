@@ -1567,6 +1567,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setTheme(!document.documentElement.classList.contains("dark-mode"));
   });
 
+  const heroImgToggle = document.querySelector(".hero-img-toggle");
+  if (heroImgToggle) {
+    heroImgToggle.addEventListener("click", () => {
+      setTheme(!document.documentElement.classList.contains("dark-mode"));
+    });
+  }
+
   const SHORTCUTS = [
     { keys: ["'"], desc: "Previous nav item" },
     { keys: ["/"], desc: "Next nav item" },
