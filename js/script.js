@@ -1367,71 +1367,150 @@ function createFireflies(container) {
   }
 }
 
-function createFloralLayer() {
+const FLORAL_COUNT = 75;
+const FLORAL_BLOW_AWAY_CHANCE = 0.5;
+const FLORAL_SWAY_DURATION = 7;
+const FLORAL_COLORS = ["#f6c9dc", "#bfe0f2", "#fff3b8", "#c9e8c2", "#d6d6d6", "#ffd3a6"];
+
+function randomFloralPosition() {
+  return { left: Math.random() * 100, top: Math.random() * 100 };
+}
+
+function createFlower(pos) {
   const svgNS = "http://www.w3.org/2000/svg";
-  const wrapper = document.createElement("div");
-  wrapper.className = "floral-layer";
+  const position = pos || randomFloralPosition();
+  const size = 28 + Math.random() * 22;
+  const petalOpacity = Math.random() < 0.5 ? 0.55 : 0.5;
+  const hasLeaf = Math.random() < 0.3;
+  const petalColor = FLORAL_COLORS[Math.floor(Math.random() * FLORAL_COLORS.length)];
 
   const svg = document.createElementNS(svgNS, "svg");
-  svg.setAttribute("width", "100%");
-  svg.setAttribute("height", "100%");
+  svg.setAttribute("class", "floral-item");
+  svg.setAttribute("viewBox", "-20 -20 40 40");
+  svg.style.left = `${position.left}vw`;
+  svg.style.top = `${position.top}vh`;
+  svg.style.width = `${size}px`;
+  svg.style.height = `${size}px`;
 
-  const defs = document.createElementNS(svgNS, "defs");
-  const pattern = document.createElementNS(svgNS, "pattern");
-  pattern.setAttribute("id", "floral-tile");
-  pattern.setAttribute("width", "200");
-  pattern.setAttribute("height", "200");
-  pattern.setAttribute("patternUnits", "userSpaceOnUse");
-  pattern.innerHTML = `
-    <g class="floral-sway">
-      <g fill="#f6c9dc" fill-opacity="0.55">
-        <circle cx="40" cy="40" r="7" /><circle cx="33.09" cy="49.51" r="7" /><circle cx="21.91" cy="45.88" r="7" /><circle cx="21.91" cy="34.12" r="7" /><circle cx="33.09" cy="30.49" r="7" />
-      </g>
-      <circle cx="30" cy="40" r="4" fill="#ffe3ac" fill-opacity="0.6" />
-      <g fill="#f6c9dc" fill-opacity="0.5">
-        <circle cx="157" cy="20" r="4.9" /><circle cx="152.16" cy="26.66" r="4.9" /><circle cx="144.34" cy="24.12" r="4.9" /><circle cx="144.34" cy="15.88" r="4.9" /><circle cx="152.16" cy="13.34" r="4.9" />
-      </g>
-      <circle cx="150" cy="20" r="2.8" fill="#ffe3ac" fill-opacity="0.6" />
-      <g fill="#f6c9dc" fill-opacity="0.55">
-        <circle cx="102" cy="110" r="8.4" /><circle cx="93.71" cy="121.41" r="8.4" /><circle cx="80.29" cy="117.06" r="8.4" /><circle cx="80.29" cy="102.94" r="8.4" /><circle cx="93.71" cy="98.59" r="8.4" />
-      </g>
-      <circle cx="90" cy="110" r="4.8" fill="#ffe3ac" fill-opacity="0.6" />
-      <g fill="#f6c9dc" fill-opacity="0.5">
-        <circle cx="178" cy="150" r="5.6" /><circle cx="172.47" cy="157.61" r="5.6" /><circle cx="163.53" cy="154.7" r="5.6" /><circle cx="163.53" cy="145.3" r="5.6" /><circle cx="172.47" cy="142.39" r="5.6" />
-      </g>
-      <circle cx="170" cy="150" r="3.2" fill="#ffe3ac" fill-opacity="0.6" />
-      <g fill="#f6c9dc" fill-opacity="0.55">
-        <circle cx="49" cy="170" r="6.3" /><circle cx="42.78" cy="178.56" r="6.3" /><circle cx="32.72" cy="175.29" r="6.3" /><circle cx="32.72" cy="164.71" r="6.3" /><circle cx="42.78" cy="161.44" r="6.3" />
-      </g>
-      <circle cx="40" cy="170" r="3.6" fill="#ffe3ac" fill-opacity="0.6" />
-      <g fill="#bcdbb4" fill-opacity="0.45">
-        <ellipse cx="22" cy="52" rx="5" ry="2" transform="rotate(-30 22 52)" />
-        <ellipse cx="100" cy="122" rx="6" ry="2.5" transform="rotate(20 100 122)" />
-        <ellipse cx="160" cy="18" rx="4" ry="1.7" transform="rotate(-15 160 18)" />
+  let petals = "";
+  for (let i = 0; i < 5; i++) {
+    const theta = Math.PI / 2 + i * ((2 * Math.PI) / 5);
+    const x = (10 * Math.cos(theta)).toFixed(2);
+    const y = (-10 * Math.sin(theta)).toFixed(2);
+    petals += `<circle cx="${x}" cy="${y}" r="7" />`;
+  }
+
+  const leaf = hasLeaf
+    ? `<ellipse cx="-14" cy="10" rx="5" ry="2" fill="#bcdbb4" fill-opacity="0.45" transform="rotate(-30 -14 10)" />`
+    : "";
+
+  svg.innerHTML = `
+    <g class="floral-sway" style="animation-delay: -${(Math.random() * FLORAL_SWAY_DURATION).toFixed(2)}s">
+      <g class="floral-wind">
+        <g fill="${petalColor}" fill-opacity="${petalOpacity}">${petals}</g>
+        <circle cx="0" cy="0" r="4" fill="#ffe3ac" fill-opacity="0.6" />
+        ${leaf}
       </g>
     </g>
   `;
-  defs.appendChild(pattern);
-  svg.appendChild(defs);
 
-  const rect = document.createElementNS(svgNS, "rect");
-  rect.setAttribute("width", "100%");
-  rect.setAttribute("height", "100%");
-  rect.setAttribute("fill", "url(#floral-tile)");
-  svg.appendChild(rect);
+  return svg;
+}
 
-  wrapper.appendChild(svg);
+function createFloralLayer() {
+  const wrapper = document.createElement("div");
+  wrapper.className = "floral-layer";
+  for (let i = 0; i < FLORAL_COUNT; i++) {
+    wrapper.appendChild(createFlower());
+  }
   return wrapper;
 }
 
-function scheduleFloralGust(swayGroup) {
-  const delay = 10000 + Math.random() * 20000;
+const FLORAL_NUDGE_STEPS = [
+  { amp: 11, rot: 9, offset: 0.08, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+  { amp: -6, rot: -5, offset: 0.24, easing: "ease-in-out" },
+  { amp: 4, rot: 3, offset: 0.4, easing: "ease-in-out" },
+  { amp: -2.4, rot: -1.8, offset: 0.56, easing: "ease-in-out" },
+  { amp: 1.3, rot: 1, offset: 0.72, easing: "ease-in-out" },
+  { amp: -0.5, rot: -0.4, offset: 0.87, easing: "ease-in-out" },
+];
+
+function nudgeFlower(flower, dirX, dirY) {
+  const windGroup = flower.querySelector(".floral-wind");
+  if (!windGroup) return;
+
+  const keyframes = [
+    { transform: "translate(0px, 0px) rotate(0deg)", offset: 0, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+  ];
+  FLORAL_NUDGE_STEPS.forEach((step) => {
+    keyframes.push({
+      transform: `translate(${(dirX * step.amp).toFixed(2)}px, ${(dirY * step.amp).toFixed(2)}px) rotate(${step.rot}deg)`,
+      offset: step.offset,
+      easing: step.easing,
+    });
+  });
+  keyframes.push({ transform: "translate(0px, 0px) rotate(0deg)", offset: 1 });
+
+  windGroup.animate(keyframes, { duration: 4200, easing: "ease-out" });
+}
+
+function blowFlowerAway(flower, layer, dirX, dirY) {
+  const distance = Math.max(window.innerWidth, window.innerHeight) * 1.4;
+  const dx = dirX * distance;
+  const dy = dirY * distance;
+  const spin = Math.random() * 240 - 120;
+  const duration = 2200 + Math.random() * 900;
+
+  const anim = flower.animate(
+    [
+      { transform: "translate(0px, 0px) rotate(0deg)", opacity: 1, offset: 0 },
+      {
+        transform: `translate(${(dx * 0.2).toFixed(1)}px, ${(dy * 0.2).toFixed(1)}px) rotate(${(spin * 0.25).toFixed(0)}deg)`,
+        opacity: 1,
+        offset: 0.25,
+      },
+      {
+        transform: `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${spin.toFixed(0)}deg)`,
+        opacity: 0,
+        offset: 1,
+      },
+    ],
+    { duration, easing: "cubic-bezier(0.55, 0, 1, 0.45)", fill: "forwards" }
+  );
+
+  anim.onfinish = () => {
+    flower.remove();
+    if (!layer.isConnected) return;
+    const replacement = createFlower();
+    replacement.style.opacity = "0";
+    layer.appendChild(replacement);
+    replacement.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1200, easing: "ease-out", fill: "forwards" });
+  };
+}
+
+function triggerFloralGust(layer) {
+  const windAngleDeg = Math.random() * 360;
+  const flowers = Array.from(layer.querySelectorAll(".floral-item"));
+
+  flowers.forEach((flower) => {
+    const angleDeg = windAngleDeg + (Math.random() * 10 - 5);
+    const angleRad = (angleDeg * Math.PI) / 180;
+    const dirX = Math.cos(angleRad);
+    const dirY = Math.sin(angleRad);
+
+    if (Math.random() < FLORAL_BLOW_AWAY_CHANCE) {
+      blowFlowerAway(flower, layer, dirX, dirY);
+    } else {
+      nudgeFlower(flower, dirX, dirY);
+    }
+  });
+}
+
+function scheduleFloralGust(layer) {
+  const delay = 12000 + Math.random() * 10000;
   setTimeout(() => {
-    swayGroup.classList.add("gust");
-    setTimeout(() => {
-      swayGroup.classList.remove("gust");
-    }, 3000);
-    scheduleFloralGust(swayGroup);
+    triggerFloralGust(layer);
+    scheduleFloralGust(layer);
   }, delay);
 }
 
@@ -1465,13 +1544,7 @@ function setTheme(isDark) {
 document.addEventListener("DOMContentLoaded", () => {
   const floralLayer = createFloralLayer();
   document.body.insertBefore(floralLayer, document.body.firstChild);
-  const swayGroup = floralLayer.querySelector(".floral-sway");
-  if (swayGroup) {
-    const swayDuration = 7;
-    const phaseOffset = (Date.now() / 1000) % swayDuration;
-    swayGroup.style.animationDelay = `-${phaseOffset}s`;
-    scheduleFloralGust(swayGroup);
-  }
+  scheduleFloralGust(floralLayer);
 
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
