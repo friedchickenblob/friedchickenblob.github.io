@@ -1,18 +1,18 @@
 # jordan 🐔 kwan
 
-A personal site built with plain HTML, CSS, and JavaScript, no frameworks or build step.
+A personal site built with plain HTML, CSS, JavaScript, and a bit of vibe coding. No frameworks or build step.
 
 ## Pages
 
-- **Home** — landing page with a hero image that swaps between a light and dark variant
-- **Projects** — CaloBro, SnowSocial, and Hire Power, each with its own detail page (screenshots and/or an embedded video)
-- **Blog** — short dated posts
-- **Experience** — work history
-- **Fun** — sub-tabs for:
-  - **Languages** — flag cards linking to short fact pages, covering 30+ languages/dialects
-  - **Music** — a "plus sign" layout (Seasons / Albums / EP / Singles / Luv(sic) Hexalogy), each linking to a page of embedded Spotify/YouTube tracks
-  - **Games** — cards linking to a blurb + screenshot for each game
-  - **Food** — a recipe card
+- **Home** ~ landing page with a hero image that swaps between a light and dark variant
+- **Projects** ~ CaloBro, SnowSocial, and Hire Power, each with its own detail page (screenshots and/or an embedded video)
+- **Blog** ~ short dated posts
+- **Experience** ~ work history
+- **Fun** ~ sub-tabs for:
+  - **Languages** ~ flag cards linking to short fact pages, covering 30+ languages/dialects
+  - **Music** ~ a "plus sign" layout (Seasons / Albums / EP / Singles / Luv(sic) Hexalogy), each linking to a page of embedded Spotify/YouTube tracks
+  - **Games** ~ cards linking to a blurb + screenshot for each game
+  - **Food** ~ a recipe card
 
 Other features: a dark mode toggle (bottom-left, persisted via `localStorage`) that swaps in a night-mode hero image and an animated firefly overlay, and an animated floral background pattern in light mode.
 
@@ -39,7 +39,7 @@ The Thai language page (`/facts/?lang=thai`, Writing & Basics → Practice tab) 
 service in `ocr/` running a pretrained Thai handwriting model
 ([openthaigpt/thai-trocr](https://huggingface.co/openthaigpt/thai-trocr)). It's
 behind a Docker Compose profile since it pulls in PyTorch/transformers and isn't
-needed for normal site work, and it only runs locally — there's no backend once
+needed for normal site work, and it only runs locally ~ there's no backend once
 the site is deployed to GitHub Pages, so the widget just shows a friendly
 "can't reach the practice server" message there.
 

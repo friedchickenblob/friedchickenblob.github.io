@@ -2,7 +2,7 @@
 
 Local-only companion to the static site: loads a pretrained Thai
 handwriting model (openthaigpt/thai-trocr) and exposes a single
-/predict endpoint. Not deployed anywhere — the site's practice widget
+/predict endpoint. Not deployed anywhere ~ the site's practice widget
 just fails gracefully if this isn't running.
 """
 

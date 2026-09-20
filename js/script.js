@@ -6,8 +6,8 @@ const LANGUAGE_FACTS = {
       "The Thai script has 44 consonants and no spaces between words within a sentence.",
     ],
     basics: {
-      writing: "Thai script is an abugida — explore the 44 consonants (by class), 28 vowels (by length), and tone marks below.",
-      note: "A consonant's class (mid/high/low) combines with tone marks and syllable shape to determine the spoken tone — the full rules are beyond \"basics,\" but the classes are a starting point.",
+      writing: "Thai script is an abugida ~ explore the 44 consonants (by class), 28 vowels (by length), and tone marks below.",
+      note: "A consonant's class (mid/high/low) combines with tone marks and syllable shape to determine the spoken tone ~ the full rules are beyond \"basics,\" but the classes are a starting point.",
       tabbed: true,
       tabs: [
         {
@@ -79,12 +79,12 @@ const LANGUAGE_FACTS = {
           key: "tones",
           label: "Tone Marks",
           cards: [
-            { symbol: "◌่", name: "Mai Ek", effect: "Marks a low tone on mid-class consonants (and shifts the tone on high/low-class syllables per the standard tone rules).", example: "ไก่ (gài — chicken)" },
-            { symbol: "◌้", name: "Mai Tho", effect: "Marks a falling tone on mid-class consonants (also used with high/low-class consonants under the tone rules).", example: "ม้า (máa — horse)" },
-            { symbol: "◌๊", name: "Mai Tri", effect: "Marks a high tone. Only ever appears on mid-class consonants, mostly in loanwords.", example: "ก๊าซ (káat — gas)" },
-            { symbol: "◌๋", name: "Mai Chattawa", effect: "Marks a rising tone. Only ever appears on mid-class consonants.", example: "ตั๋ว (tǔa — ticket)" },
-            { symbol: "◌์", name: "Thanthakhat (Karan)", effect: "Silences the letter (and any letters after it in the cluster) that it sits above — usually left over from the word's original spelling in Sanskrit/Pali/English.", example: "จันทร์ (jan — moon; the ทร์ is silent)" },
-            { symbol: "ๆ", name: "Mai Yamok", effect: "Repeats the preceding word, often to form a plural or add emphasis.", example: "เด็กๆ (dèk dèk — children)" },
+            { symbol: "◌่", name: "Mai Ek", effect: "Marks a low tone on mid-class consonants (and shifts the tone on high/low-class syllables per the standard tone rules).", example: "ไก่ (gài ~ chicken)" },
+            { symbol: "◌้", name: "Mai Tho", effect: "Marks a falling tone on mid-class consonants (also used with high/low-class consonants under the tone rules).", example: "ม้า (máa ~ horse)" },
+            { symbol: "◌๊", name: "Mai Tri", effect: "Marks a high tone. Only ever appears on mid-class consonants, mostly in loanwords.", example: "ก๊าซ (káat ~ gas)" },
+            { symbol: "◌๋", name: "Mai Chattawa", effect: "Marks a rising tone. Only ever appears on mid-class consonants.", example: "ตั๋ว (tǔa ~ ticket)" },
+            { symbol: "◌์", name: "Thanthakhat (Karan)", effect: "Silences the letter (and any letters after it in the cluster) that it sits above ~ usually left over from the word's original spelling in Sanskrit/Pali/English.", example: "จันทร์ (jan ~ moon; the ทร์ is silent)" },
+            { symbol: "ๆ", name: "Mai Yamok", effect: "Repeats the preceding word, often to form a plural or add emphasis.", example: "เด็กๆ (dèk dèk ~ children)" },
             { symbol: "ฯ", name: "Paiyan Noi", effect: "Marks an abbreviated word or name.", example: "กรุงเทพฯ (short for the full ceremonial name of Bangkok)" },
           ],
         },
@@ -111,7 +111,7 @@ const LANGUAGE_FACTS = {
       "The modern Vietnamese alphabet, Chữ Quốc Ngữ, is based on the Latin script and was developed by a 17th-century Portuguese-French missionary.",
     ],
     basics: {
-      writing: "Vietnamese uses the Latin alphabet (29 letters), digraphs for sounds one letter can't cover, and 6 tones — Chữ Quốc Ngữ.",
+      writing: "Vietnamese uses the Latin alphabet (29 letters), digraphs for sounds one letter can't cover, and 6 tones ~ Chữ Quốc Ngữ.",
       note: "IPA is for Northern (Hanoi) pronunciation; Southern Vietnamese differs for a few letters, noted as (S: ...) below.",
       tabbed: true,
       tabs: [
@@ -162,12 +162,12 @@ const LANGUAGE_FACTS = {
             {
               label: "Tones (with ma)",
               items: [
-                { ch: "ma", t: "level — ghost" },
-                { ch: "mà", t: "low falling — but" },
-                { ch: "má", t: "high rising — mother/cheek" },
-                { ch: "mả", t: "dipping-rising — grave" },
-                { ch: "mã", t: "creaky rising — code/horse" },
-                { ch: "mạ", t: "low glottalized — rice seedling" },
+                { ch: "ma", t: "level ~ ghost" },
+                { ch: "mà", t: "low falling ~ but" },
+                { ch: "má", t: "high rising ~ mother/cheek" },
+                { ch: "mả", t: "dipping-rising ~ grave" },
+                { ch: "mã", t: "creaky rising ~ code/horse" },
+                { ch: "mạ", t: "low glottalized ~ rice seedling" },
               ],
             },
           ],
@@ -190,7 +190,7 @@ const LANGUAGE_FACTS = {
       'Japanese has no grammatical plural form for most nouns, so "本" (hon) can mean "book" or "books" depending on context.',
     ],
     basics: {
-      writing: "Japanese combines hiragana, katakana, and kanji — here are the vowel rows of each plus a few common kanji.",
+      writing: "Japanese combines hiragana, katakana, and kanji ~ here are the vowel rows of each plus a few common kanji.",
       groups: [
         {
           label: "Hiragana (vowels)",
@@ -207,8 +207,8 @@ const LANGUAGE_FACTS = {
         {
           label: "Basic Kanji",
           items: [
-            { ch: "人", t: "hito — person" }, { ch: "火", t: "hi — fire" }, { ch: "水", t: "mizu — water" },
-            { ch: "木", t: "ki — tree" }, { ch: "金", t: "kin — gold/money" }, { ch: "土", t: "tsuchi — earth" },
+            { ch: "人", t: "hito ~ person" }, { ch: "火", t: "hi ~ fire" }, { ch: "水", t: "mizu ~ water" },
+            { ch: "木", t: "ki ~ tree" }, { ch: "金", t: "kin ~ gold/money" }, { ch: "土", t: "tsuchi ~ earth" },
           ],
         },
       ],
@@ -229,14 +229,14 @@ const LANGUAGE_FACTS = {
       "Cantonese preserves many features of Middle Chinese that Mandarin has lost, including final consonants like -p, -t, and -k.",
     ],
     basics: {
-      writing: "Written with Chinese characters (Hanzi) — here are a few basics, romanized in Jyutping.",
+      writing: "Written with Chinese characters (Hanzi) ~ here are a few basics, romanized in Jyutping.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "jat1 — one" }, { ch: "二", t: "ji6 — two" }, { ch: "三", t: "saam1 — three" },
-            { ch: "人", t: "jan4 — person" }, { ch: "大", t: "daai6 — big" }, { ch: "小", t: "siu2 — small" },
-            { ch: "你好", t: "nei5 hou2 — hello" }, { ch: "雞", t: "gai1 — chicken" }, { ch: "蛋", t: "daan2 — egg" },
+            { ch: "一", t: "jat1 ~ one" }, { ch: "二", t: "ji6 ~ two" }, { ch: "三", t: "saam1 ~ three" },
+            { ch: "人", t: "jan4 ~ person" }, { ch: "大", t: "daai6 ~ big" }, { ch: "小", t: "siu2 ~ small" },
+            { ch: "你好", t: "nei5 hou2 ~ hello" }, { ch: "雞", t: "gai1 ~ chicken" }, { ch: "蛋", t: "daan2 ~ egg" },
           ],
         },
       ],
@@ -254,14 +254,14 @@ const LANGUAGE_FACTS = {
       "Taiwanese preserves eight tones from Middle Chinese, more than Mandarin's four, and features extensive tone sandhi where a word's tone shifts based on what follows it.",
     ],
     basics: {
-      writing: "Written with Chinese characters — here are a few basics, romanized in Tâi-lô.",
+      writing: "Written with Chinese characters ~ here are a few basics, romanized in Tâi-lô.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "tsi̍t — one" }, { ch: "二", t: "nn̄g — two" }, { ch: "三", t: "sann — three" },
-            { ch: "人", t: "lâng — person" }, { ch: "大", t: "tuā — big" }, { ch: "小", t: "sió — small" },
-            { ch: "你好", t: "lí-hó — hello" }, { ch: "雞", t: "ke — chicken" }, { ch: "雞卵", t: "ke-nn̄g — egg" },
+            { ch: "一", t: "tsi̍t ~ one" }, { ch: "二", t: "nn̄g ~ two" }, { ch: "三", t: "sann ~ three" },
+            { ch: "人", t: "lâng ~ person" }, { ch: "大", t: "tuā ~ big" }, { ch: "小", t: "sió ~ small" },
+            { ch: "你好", t: "lí-hó ~ hello" }, { ch: "雞", t: "ke ~ chicken" }, { ch: "雞卵", t: "ke-nn̄g ~ egg" },
           ],
         },
       ],
@@ -279,7 +279,7 @@ const LANGUAGE_FACTS = {
       'Many Singaporeans speak Singlish, an English-based creole that blends vocabulary and grammar from Hokkien, Malay, Tamil, and Cantonese.',
     ],
     basics: {
-      writing: "No single script — Singlish blends English with words and grammar from Hokkien, Malay, Tamil, and Cantonese.",
+      writing: "No single script ~ Singlish blends English with words and grammar from Hokkien, Malay, Tamil, and Cantonese.",
       groups: [
         {
           label: "Singlish & Loanwords",
@@ -287,7 +287,7 @@ const LANGUAGE_FACTS = {
             { ch: "lah", t: "adds emphasis" }, { ch: "leh", t: "softens a suggestion" },
             { ch: "lor", t: "resigned, \"that's just how it is\"" }, { ch: "meh", t: "skeptical question" },
             { ch: "shiok", t: "very satisfying/delicious" }, { ch: "kiasu", t: "afraid of losing out" },
-            { ch: "kai (雞)", t: "chicken — from Hokkien" }, { ch: "telur", t: "egg — from Malay" },
+            { ch: "kai (雞)", t: "chicken ~ from Hokkien" }, { ch: "telur", t: "egg ~ from Malay" },
           ],
         },
       ],
@@ -300,14 +300,14 @@ const LANGUAGE_FACTS = {
       "Mandarin is written with the same characters used across China, even though pronunciation varies significantly by region.",
     ],
     basics: {
-      writing: "Written with Chinese characters (Hanzi) — here are a few basics, romanized in Hanyu Pinyin.",
+      writing: "Written with Chinese characters (Hanzi) ~ here are a few basics, romanized in Hanyu Pinyin.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -325,14 +325,14 @@ const LANGUAGE_FACTS = {
       "Hokkien retains many pronunciations from Old Chinese that have disappeared from Mandarin, which is why some Hokkien words sound closer to how Chinese was spoken over a thousand years ago.",
     ],
     basics: {
-      writing: "Written with Chinese characters — here are a few basics, romanized in Tâi-lô (same system used for Taiwanese Hokkien).",
+      writing: "Written with Chinese characters ~ here are a few basics, romanized in Tâi-lô (same system used for Taiwanese Hokkien).",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "tsi̍t — one" }, { ch: "二", t: "nn̄g — two" }, { ch: "三", t: "sann — three" },
-            { ch: "人", t: "lâng — person" }, { ch: "大", t: "tuā — big" }, { ch: "小", t: "sió — small" },
-            { ch: "你好", t: "lí-hó — hello" }, { ch: "雞", t: "ke — chicken" }, { ch: "雞卵", t: "ke-nn̄g — egg" },
+            { ch: "一", t: "tsi̍t ~ one" }, { ch: "二", t: "nn̄g ~ two" }, { ch: "三", t: "sann ~ three" },
+            { ch: "人", t: "lâng ~ person" }, { ch: "大", t: "tuā ~ big" }, { ch: "小", t: "sió ~ small" },
+            { ch: "你好", t: "lí-hó ~ hello" }, { ch: "雞", t: "ke ~ chicken" }, { ch: "雞卵", t: "ke-nn̄g ~ egg" },
           ],
         },
       ],
@@ -351,14 +351,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Teochew's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Teochew's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -372,14 +372,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Fuzhounese's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Fuzhounese's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -393,14 +393,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Putian's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Putian's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -414,14 +414,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Hainanese's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Hainanese's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -435,14 +435,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Hakka's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Hakka's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -456,14 +456,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Taishanese's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Taishanese's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -477,14 +477,14 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Written with Chinese characters, shared across varieties. Pronunciation shown here is Mandarin, as a reference.",
-      note: "Not sure of Shanghainese's own romanization yet — Mandarin pinyin is shown as a starting reference.",
+      note: "Not sure of Shanghainese's own romanization yet ~ Mandarin pinyin is shown as a starting reference.",
       groups: [
         {
           label: "Basic Characters",
           items: [
-            { ch: "一", t: "yī — one" }, { ch: "二", t: "èr — two" }, { ch: "三", t: "sān — three" },
-            { ch: "人", t: "rén — person" }, { ch: "大", t: "dà — big" }, { ch: "小", t: "xiǎo — small" },
-            { ch: "你好", t: "nǐ hǎo — hello" }, { ch: "雞", t: "jī — chicken" }, { ch: "蛋", t: "dàn — egg" },
+            { ch: "一", t: "yī ~ one" }, { ch: "二", t: "èr ~ two" }, { ch: "三", t: "sān ~ three" },
+            { ch: "人", t: "rén ~ person" }, { ch: "大", t: "dà ~ big" }, { ch: "小", t: "xiǎo ~ small" },
+            { ch: "你好", t: "nǐ hǎo ~ hello" }, { ch: "雞", t: "jī ~ chicken" }, { ch: "蛋", t: "dàn ~ egg" },
           ],
         },
       ],
@@ -497,7 +497,7 @@ const LANGUAGE_FACTS = {
       "Indonesian has no verb conjugation for tense, gender, or number, relying instead on context and time words.",
     ],
     basics: {
-      writing: "Uses the Latin alphabet — here are a few pronunciation quirks to get started.",
+      writing: "Uses the Latin alphabet ~ here are a few pronunciation quirks to get started.",
       groups: [
         {
           label: "Pronunciation Notes",
@@ -524,7 +524,7 @@ const LANGUAGE_FACTS = {
       "Korean uses different speech levels and honorifics that change verb endings depending on who you're speaking to.",
     ],
     basics: {
-      writing: "Hangul, the Korean alphabet, is featural — the shape of each letter hints at how it's pronounced.",
+      writing: "Hangul, the Korean alphabet, is featural ~ the shape of each letter hints at how it's pronounced.",
       groups: [
         {
           label: "Consonants",
@@ -561,8 +561,8 @@ const LANGUAGE_FACTS = {
       'North Korean Korean, called Munhwaŏ ("cultured language"), purged many Chinese-derived and foreign loanwords in favor of native Korean coinages.',
     ],
     basics: {
-      writing: "Uses the same Hangul alphabet as South Korea — see that page for the consonants and vowels.",
-      note: "Vocabulary has drifted apart since division — egg is a good example below.",
+      writing: "Uses the same Hangul alphabet as South Korea ~ see that page for the consonants and vowels.",
+      note: "Vocabulary has drifted apart since division ~ egg is a good example below.",
       vocab: [
         { w: "반갑습니다", t: "bangapseumnida", m: "hello" },
         { w: "고맙습니다", t: "gomapseumnida", m: "thank you" },
@@ -636,7 +636,7 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Lao script is an abugida related to Thai and Khmer, and is also tonal.",
-      note: "Lao's 6 tones follow complex, dialect-dependent rules, so they're not charted here — just the core letters.",
+      note: "Lao's 6 tones follow complex, dialect-dependent rules, so they're not charted here ~ just the core letters.",
       groups: [
         {
           label: "Consonants",
@@ -701,7 +701,7 @@ const LANGUAGE_FACTS = {
     ],
     basics: {
       writing: "Khmer script is an abugida with 74 characters in total, including vowels that change shape around consonants.",
-      note: "Khmer's vowel signs change shape depending on which consonant they attach to, which is part of why the full alphabet totals 74 characters — just the core consonants are shown here.",
+      note: "Khmer's vowel signs change shape depending on which consonant they attach to, which is part of why the full alphabet totals 74 characters ~ just the core consonants are shown here.",
       groups: [
         {
           label: "Consonants",
@@ -730,7 +730,7 @@ const LANGUAGE_FACTS = {
       "Malay was traditionally written in the Jawi script, an Arabic-based alphabet, before the Latin-based Rumi script became standard.",
     ],
     basics: {
-      writing: "Uses the Latin alphabet — here are a few pronunciation quirks to get started.",
+      writing: "Uses the Latin alphabet ~ here are a few pronunciation quirks to get started.",
       groups: [
         {
           label: "Pronunciation Notes",
@@ -757,7 +757,7 @@ const LANGUAGE_FACTS = {
       "Like other spoken Arabic dialects, it differs from Modern Standard Arabic in everyday vocabulary, pronunciation, and grammar, even though both use the same script.",
     ],
     basics: {
-      writing: "Written with the same Arabic script as Modern Standard Arabic — see that page for the full alphabet.",
+      writing: "Written with the same Arabic script as Modern Standard Arabic ~ see that page for the full alphabet.",
       vocab: [
         { w: "مرحبا", t: "marhaba", m: "hello" },
         { w: "شكرا", t: "shukran", m: "thank you" },
@@ -775,7 +775,7 @@ const LANGUAGE_FACTS = {
       "Because expatriates make up most of the UAE's population, Emirati Arabic speakers are often a linguistic minority in their own cities, alongside widely spoken English, Hindi, and Urdu.",
     ],
     basics: {
-      writing: "Written with the same Arabic script as Modern Standard Arabic — see that page for the full alphabet.",
+      writing: "Written with the same Arabic script as Modern Standard Arabic ~ see that page for the full alphabet.",
       vocab: [
         { w: "مرحبا", t: "marhaba", m: "hello" },
         { w: "مشكور", t: "mashkoor", m: "thank you" },
@@ -994,7 +994,7 @@ const LANGUAGE_FACTS = {
       "Marathi is written in the Devanagari script and is the official language of the Indian state of Maharashtra, home to Mumbai.",
     ],
     basics: {
-      writing: "Uses the same Devanagari script as Hindi — see that page for the alphabet.",
+      writing: "Uses the same Devanagari script as Hindi ~ see that page for the alphabet.",
       vocab: [
         { w: "नमस्कार", t: "namaskar", m: "hello" },
         { w: "धन्यवाद", t: "dhanyavaad", m: "thank you" },
@@ -1080,7 +1080,7 @@ const LANGUAGE_FACTS = {
           label: "Special Letters",
           items: [
             { ch: "oʻ", t: "aw sound" }, { ch: "gʻ", t: "gh sound" }, { ch: "sh", t: "sh sound" },
-            { ch: "ch", t: "ch sound" }, { ch: "ʼ", t: "tutuq belgisi — glottal stop" },
+            { ch: "ch", t: "ch sound" }, { ch: "ʼ", t: "tutuq belgisi ~ glottal stop" },
           ],
         },
       ],
@@ -1842,7 +1842,7 @@ const OCR_PRACTICE_WORDS = [
 
 function renderOcrPractice() {
   return `
-    <p class="basics-note">Draw the target word below and check it against a real Thai handwriting-recognition model. This runs locally only — start it with <code>docker compose --profile ocr up</code> alongside the site.</p>
+    <p class="basics-note">Draw the target word below and check it against a real Thai handwriting-recognition model. This runs locally only ~ start it with <code>docker compose --profile ocr up</code> alongside the site.</p>
     <div class="ocr-target">
       <div>
         <span class="ocr-target-word" id="ocr-target-word"></span>
@@ -1880,7 +1880,7 @@ function wireOcrPractice(container) {
   function pickWord() {
     currentWord = OCR_PRACTICE_WORDS[Math.floor(Math.random() * OCR_PRACTICE_WORDS.length)];
     targetWordEl.textContent = currentWord.w;
-    targetMetaEl.textContent = `${currentWord.t} — ${currentWord.m}`;
+    targetMetaEl.textContent = `${currentWord.t} ~ ${currentWord.m}`;
     clearCanvas();
     resultEl.className = "ocr-result";
     resultEl.innerHTML = "";
