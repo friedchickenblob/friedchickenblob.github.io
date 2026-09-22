@@ -1221,6 +1221,11 @@ const PROJECTS = {
   calobro: {
     name: "CaloBro 📸",
     blurb: "An app where you snap a picture of your meal and it automatically logs the calories, with streaks to keep you consistent.",
+    coauthors: [
+      { name: "Dion", photo: "/assets/coauthors/dion.jpg", linkedin: "https://www.linkedin.com/in/dion-alex-mathew-b7697a2a6/" },
+      { name: "Hanh", photo: "/assets/coauthors/hanh.png", linkedin: "https://www.linkedin.com/in/hanh-mong-15366229b/" },
+      { name: "Zoe", photo: "/assets/coauthors/dung.jpg", linkedin: "https://www.linkedin.com/in/dam-dung-nguyen-mong-b88952358/" },
+    ],
     images: [
       "/assets/calobro/98.png",
       "/assets/calobro/99.png",
@@ -1246,6 +1251,11 @@ const PROJECTS = {
   snowsocial: {
     name: "SnowSocial ❄️",
     blurb: "A REST API federation project. Think five different Twitter-like networks, all talking to each other.",
+    coauthors: [
+      { name: "Dion", photo: "/assets/coauthors/dion.jpg", linkedin: "https://www.linkedin.com/in/dion-alex-mathew-b7697a2a6/" },
+      { name: "Hanh", photo: "/assets/coauthors/hanh.png", linkedin: "https://www.linkedin.com/in/hanh-mong-15366229b/" },
+      { name: "Zoe", photo: "/assets/coauthors/dung.jpg", linkedin: "https://www.linkedin.com/in/dam-dung-nguyen-mong-b88952358/" },
+    ],
     video: "FQRC_RTTsF0",
   },
 };
@@ -1754,6 +1764,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectBlurb = document.getElementById("project-blurb");
   const projectVideo = document.getElementById("project-video");
   const projectGallery = document.getElementById("project-gallery");
+  const projectCoauthors = document.getElementById("project-coauthors");
   if (projectTitle && projectBlurb) {
     const projectKey = new URLSearchParams(window.location.search).get("project");
     const project = PROJECTS[projectKey];
@@ -1761,6 +1772,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (project) {
       projectTitle.textContent = project.name;
       projectBlurb.textContent = project.blurb;
+
+      if (project.coauthors && projectCoauthors) {
+        project.coauthors.forEach((coauthor) => {
+          const link = document.createElement("a");
+          link.className = "coauthor-chip";
+          link.href = coauthor.linkedin;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.setAttribute("aria-label", `${coauthor.name} on LinkedIn`);
+
+          const photo = document.createElement("img");
+          photo.className = "coauthor-photo";
+          photo.src = coauthor.photo;
+          photo.alt = coauthor.name;
+          photo.loading = "lazy";
+
+          const name = document.createElement("span");
+          name.className = "coauthor-name";
+          name.textContent = coauthor.name;
+
+          link.appendChild(photo);
+          link.appendChild(name);
+          projectCoauthors.appendChild(link);
+        });
+      }
 
       if (project.video && projectVideo) {
         const iframe = document.createElement("iframe");
