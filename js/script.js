@@ -1267,6 +1267,12 @@ const GAMES = {
     blurb: "A tower-defense classic where you line up sunflowers, peashooters, and oddball plants to stop a goofy zombie invasion from reaching your house.",
     image: "/assets/games/plants-vs-zombies.jpg",
   },
+  "mario-party": {
+    name: "Mario Party",
+    emoji: "🎲",
+    blurb: "A chaotic board-game-meets-minigame party series that's ended more friendships than any game has a right to over a well-timed item steal.",
+    image: "/assets/games/mario-party.jpg",
+  },
   minecraft: {
     name: "Minecraft",
     emoji: "⛏️",
@@ -1302,6 +1308,12 @@ const GAMES = {
     emoji: "🌾",
     blurb: "A cozy farming sim about planting crops, befriending townsfolk, and slowly turning a run-down farm into a thriving homestead.",
     image: "/assets/games/stardew-valley.jpg",
+  },
+  fortnite: {
+    name: "Fortnite",
+    emoji: "🪂",
+    blurb: "A battle royale where you drop onto an island, scavenge gear, build cover on the fly, and fight to be the last one standing.",
+    image: "/assets/games/fortnite.webp",
   },
   celeste: {
     name: "Celeste",
