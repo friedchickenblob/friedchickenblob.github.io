@@ -5,7 +5,7 @@ A personal site built with plain HTML, CSS, JavaScript, and a bit of vibe coding
 ## Pages
 
 - **Home** ~ landing page with a hero image that swaps between a light and dark variant
-- **Projects** ~ CaloBro, SnowSocial, and Hire Power, each with its own detail page (screenshots and/or an embedded video)
+- **Projects** ~ CaloBro, SnowSocial, and HirePower, each with its own detail page (screenshots and/or an embedded video)
 - **Blog** ~ short dated posts
 - **Experience** ~ work history
 - **Fun** ~ sub-tabs for:

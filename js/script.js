@@ -1235,7 +1235,7 @@ const PROJECTS = {
     ],
   },
   "hire-power": {
-    name: "Hire Power 😇",
+    name: "HirePower 😇",
     blurb: "A job application app my team, ALTLab Angels, built together. The name's a pun on \"higher power,\" fitting for something meant to help land your next job.",
     images: [
       "/assets/hire-power/001.png",
