@@ -1176,18 +1176,53 @@ const MUSIC = {
   },
   albums: {
     name: "Albumz",
-    tracks: [
-      { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
-      { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
-      { title: "Cool", subtitle: "Dua Lipa", type: "spotify", id: "2nMOodYNHBAQ3Kc1QNimZU" },
-      { title: "Physical", subtitle: "Dua Lipa", type: "spotify", id: "3AzjcOeAmA57TIOr9zF1ZW" },
-      { title: "Levitating", subtitle: "Dua Lipa", type: "spotify", id: "39LLxExYz6ewLAcYrzQQyP" },
-      { title: "Pretty Please", subtitle: "Dua Lipa", type: "spotify", id: "6DXZiYUbrYgrVIhfX3U9Z2" },
-      { title: "Hallucinate", subtitle: "Dua Lipa", type: "spotify", id: "1nYeVF5vIBxMxfPoL0SIWg" },
-      { title: "Love Again", subtitle: "Dua Lipa", type: "spotify", id: "4rPkN1FMzQyFNP9cLUGIIB" },
-      { title: "Break My Heart", subtitle: "Dua Lipa", type: "spotify", id: "017PF4Q3l4DBUiWoXk4OWT" },
-      { title: "Good in Bed", subtitle: "Dua Lipa", type: "spotify", id: "6uAFJ75WDAoAPyCWJAtvks" },
-      { title: "Boys Will Be Boys", subtitle: "Dua Lipa", type: "spotify", id: "0vQcyuMEfRBd21ojZ62N2L" },
+    groups: [
+      {
+        key: "dua-lipa",
+        label: "Dua Lipa",
+        tracks: [
+          { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
+          { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
+          { title: "Cool", subtitle: "Dua Lipa", type: "spotify", id: "2nMOodYNHBAQ3Kc1QNimZU" },
+          { title: "Physical", subtitle: "Dua Lipa", type: "spotify", id: "3AzjcOeAmA57TIOr9zF1ZW" },
+          { title: "Levitating", subtitle: "Dua Lipa", type: "spotify", id: "39LLxExYz6ewLAcYrzQQyP" },
+          { title: "Pretty Please", subtitle: "Dua Lipa", type: "spotify", id: "6DXZiYUbrYgrVIhfX3U9Z2" },
+          { title: "Hallucinate", subtitle: "Dua Lipa", type: "spotify", id: "1nYeVF5vIBxMxfPoL0SIWg" },
+          { title: "Love Again", subtitle: "Dua Lipa", type: "spotify", id: "4rPkN1FMzQyFNP9cLUGIIB" },
+          { title: "Break My Heart", subtitle: "Dua Lipa", type: "spotify", id: "017PF4Q3l4DBUiWoXk4OWT" },
+          { title: "Good in Bed", subtitle: "Dua Lipa", type: "spotify", id: "6uAFJ75WDAoAPyCWJAtvks" },
+          { title: "Boys Will Be Boys", subtitle: "Dua Lipa", type: "spotify", id: "0vQcyuMEfRBd21ojZ62N2L" },
+        ],
+      },
+      {
+        key: "sza",
+        label: "SZA",
+        tracks: [
+          { title: "SOS", subtitle: "SZA", type: "spotify", id: "5xMw6qCcpd2gBXPGTegC4W" },
+          { title: "Kill Bill", subtitle: "SZA", type: "spotify", id: "3OHfY25tqY28d16oZczHc8" },
+          { title: "Seek & Destroy", subtitle: "SZA", type: "spotify", id: "6eT2V7nKXyMf47TwPbtgAD" },
+          { title: "Low", subtitle: "SZA", type: "spotify", id: "2GAhgAjOhEmItWLfgisyOn" },
+          { title: "Love Language", subtitle: "SZA", type: "spotify", id: "1eIXYZWEfJO3Na2LCCnIJE" },
+          { title: "Blind", subtitle: "SZA", type: "spotify", id: "2CSRrnOEELmhpq8iaAi9cd" },
+          { title: "Used", subtitle: "SZA ft. Don Toliver", type: "spotify", id: "1TweDM3JC49LNeelLVg3yX" },
+          { title: "Snooze", subtitle: "SZA", type: "spotify", id: "4iZ4pt7kvcaH6Yo8UoZ4s2" },
+          { title: "Notice Me", subtitle: "SZA", type: "spotify", id: "4fnNBPN9W6AoOYSQS3FJxT" },
+          { title: "Gone Girl", subtitle: "SZA", type: "spotify", id: "2Sjx8DWZO5zaTyTAmgo2gY" },
+          { title: "Smoking on my Ex Pack", subtitle: "SZA", type: "spotify", id: "4jTs7ny5eSRnKTzxdrFv5I" },
+          { title: "Ghost in the Machine", subtitle: "SZA ft. Phoebe Bridgers", type: "spotify", id: "4h5x3XHLVYFJaItKuO2rhy" },
+          { title: "F2F", subtitle: "SZA", type: "spotify", id: "2e2AXpIiJpet5b4qg85Gh6" },
+          { title: "Nobody Gets Me", subtitle: "SZA", type: "spotify", id: "5Y35SjAfXjjG0sFQ3KOxmm" },
+          { title: "Conceited", subtitle: "SZA", type: "spotify", id: "4hTej08FutmriOs7S1hWWy" },
+          { title: "Special", subtitle: "SZA", type: "spotify", id: "6RQ5IwG7uADz9LDWliJGjU" },
+          { title: "Too Late", subtitle: "SZA", type: "spotify", id: "4rAg5bbrdZX00mXXhLvYXj" },
+          { title: "Far", subtitle: "SZA", type: "spotify", id: "74NI58MQexwZjNu1Gu6GjT" },
+          { title: "Shirt", subtitle: "SZA", type: "spotify", id: "2wSTnntOPRi7aQneobFtU4" },
+          { title: "Open Arms", subtitle: "SZA ft. Travis Scott", type: "spotify", id: "0xaFw2zDYf1rIJWl2dXiSF" },
+          { title: "I Hate U", subtitle: "SZA", type: "spotify", id: "2aJnyNu4PQxQ2lyj5boiMG" },
+          { title: "Good Days", subtitle: "SZA", type: "spotify", id: "4PMqSO5qyjpvzhlLI5GnID" },
+          { title: "Forgiveless", subtitle: "SZA ft. Ol' Dirty Bastard", type: "spotify", id: "5IcP1PPnleZ2kuwKDyfNC5" },
+        ],
+      },
     ],
   },
   ep: {
@@ -1204,6 +1239,7 @@ const MUSIC = {
   singles: {
     name: "Singlez",
     tracks: [
+      { title: "STUNNER", subtitle: "TEN", type: "youtube", id: "LfoIQZf9Hqs" },
       { title: "Nếu lúc đó", subtitle: "tlinh ft. 2pillz", type: "youtube", id: "fyMgBQioTLo" },
       { title: "Introvert", subtitle: "Little Simz", type: "youtube", id: "hxfGQ2AJHGk" },
       { title: "No Tears Left to Cry", subtitle: "Ariana Grande", type: "youtube", id: "ffxKSjUwKdU" },
@@ -1839,10 +1875,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryKey = new URLSearchParams(window.location.search).get("category");
     const category = MUSIC[categoryKey];
 
-    if (category) {
-      musicTitle.textContent = category.name;
-
-      category.tracks.forEach((track) => {
+    function renderMusicTracks(tracks) {
+      musicTracks.innerHTML = "";
+      tracks.forEach((track) => {
         const trackEl = document.createElement("div");
         trackEl.className = "music-track";
 
@@ -1877,6 +1912,33 @@ document.addEventListener("DOMContentLoaded", () => {
         trackEl.appendChild(embed);
         musicTracks.appendChild(trackEl);
       });
+    }
+
+    if (category) {
+      musicTitle.textContent = category.name;
+
+      if (category.groups && category.groups.length) {
+        const artistTabs = document.createElement("div");
+        artistTabs.className = "music-artist-tabs";
+
+        category.groups.forEach((group, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "music-artist-tab-btn" + (i === 0 ? " active" : "");
+          btn.textContent = group.label;
+          btn.addEventListener("click", () => {
+            artistTabs.querySelectorAll(".music-artist-tab-btn").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderMusicTracks(group.tracks);
+          });
+          artistTabs.appendChild(btn);
+        });
+
+        musicTracks.before(artistTabs);
+        renderMusicTracks(category.groups[0].tracks);
+      } else {
+        renderMusicTracks(category.tracks);
+      }
     } else {
       musicTitle.textContent = "Not found";
     }
