@@ -1426,6 +1426,7 @@ function createFireflies(container) {
 }
 
 const FLORAL_COUNT = 75;
+const FLORAL_MAX = 1000;
 const FLORAL_BLOW_AWAY_CHANCE = 0.5;
 const FLORAL_SWAY_DURATION = 7;
 const FLORAL_COLORS = ["#f6c9dc", "#bfe0f2", "#fff3b8", "#c9e8c2", "#d6d6d6", "#ffd3a6"];
@@ -1539,6 +1540,7 @@ function blowFlowerAway(flower, layer, dirX, dirY) {
   anim.onfinish = () => {
     flower.remove();
     if (!layer.isConnected) return;
+    if (layer.querySelectorAll(".floral-item").length >= FLORAL_MAX) return;
     const replacement = createFlower();
     replacement.style.opacity = "0";
     layer.appendChild(replacement);
@@ -1659,6 +1661,14 @@ document.addEventListener("DOMContentLoaded", () => {
   helpModal.setAttribute("role", "dialog");
   helpModal.setAttribute("aria-modal", "true");
   helpModal.setAttribute("aria-label", "Keyboard shortcuts");
+
+  const helpRefresh = document.createElement("div");
+  helpRefresh.className = "help-refresh";
+  helpRefresh.innerHTML = `
+    <p class="help-refresh-title">Not seeing the latest version?</p>
+    <a class="help-refresh-link" href="${window.location.origin}${window.location.pathname}?v=${Date.now()}">Click here to refresh the page</a>
+  `;
+  helpModal.appendChild(helpRefresh);
 
   const helpHeader = document.createElement("div");
   helpHeader.className = "help-modal-header";
