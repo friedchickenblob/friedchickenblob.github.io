@@ -1634,16 +1634,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const SHORTCUTS = [
-    { keys: ["'"], desc: "Previous nav item" },
-    { keys: ["/"], desc: "Next nav item" },
-    { keys: ["W", "A", "S", "D"], desc: "Move between items" },
-    { keys: ["S"], desc: "Jump into a focused tab" },
-    { keys: ["Space"], desc: "Activate focused link" },
-    { keys: ["Enter"], desc: "Activate focused link/button" },
-    { keys: ["Shift"], desc: "Go back" },
-    { keys: ["Right Ctrl"], desc: "Go forward" },
-    { keys: ["Esc"], desc: "Close this dialog" },
+  const SHORTCUT_GROUPS = [
+    {
+      title: "Get around the site",
+      items: [
+        { keys: ["'"], desc: "Up the menu" },
+        { keys: ["/"], desc: "Down the menu" },
+        { keys: ["Shift"], desc: "Back" },
+        { keys: ["Right Ctrl"], desc: "Forward" },
+      ],
+    },
+    {
+      title: "Move around a page",
+      items: [
+        { keys: ["W", "A", "S", "D"], desc: "Move between items (S on a tab opens it)" },
+        { keys: ["Space", "Enter"], sep: "or", desc: "Open the selected item" },
+      ],
+    },
+    {
+      title: "Other",
+      items: [
+        { keys: ["R"], desc: "Refresh to the latest version" },
+        { keys: ["Esc"], desc: "Close this window" },
+      ],
+    },
   ];
 
   const helpFab = document.createElement("button");
@@ -1662,16 +1676,27 @@ document.addEventListener("DOMContentLoaded", () => {
   helpModal.setAttribute("aria-modal", "true");
   helpModal.setAttribute("aria-label", "Keyboard shortcuts");
 
+  const helpBody = document.createElement("div");
+  helpBody.className = "help-modal-body";
+
   const helpRefresh = document.createElement("div");
   helpRefresh.className = "help-refresh";
   helpRefresh.innerHTML = `
     <p class="help-refresh-title">Not seeing the latest version?</p>
     <a class="help-refresh-link" href="#">Click here to refresh the page</a>
+    <span class="help-refresh-or">or press</span>
+    <span class="help-key">R</span>
   `;
-  const refreshUrl = new URL(window.location.href);
-  refreshUrl.searchParams.set("v", Date.now());
-  helpRefresh.querySelector(".help-refresh-link").href = refreshUrl.href;
-  helpModal.appendChild(helpRefresh);
+  const helpRefreshLink = helpRefresh.querySelector(".help-refresh-link");
+  helpRefreshLink.href = getRefreshUrl();
+  helpRefreshLink.addEventListener("click", (e) => {
+    // plain left-click does the full refresh; ctrl/middle-click still opens the plain link
+    if (e.button === 0 && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) {
+      e.preventDefault();
+      hardRefresh();
+    }
+  });
+  helpBody.appendChild(helpRefresh);
 
   const helpHeader = document.createElement("div");
   helpHeader.className = "help-modal-header";
@@ -1683,39 +1708,77 @@ document.addEventListener("DOMContentLoaded", () => {
   helpClose.setAttribute("aria-label", "Close");
   helpClose.textContent = "×";
   helpHeader.appendChild(helpClose);
-  helpModal.appendChild(helpHeader);
+  helpBody.appendChild(helpHeader);
 
-  const helpList = document.createElement("ul");
-  helpList.className = "help-shortcut-list";
-  SHORTCUTS.forEach((shortcut) => {
-    const item = document.createElement("li");
+  const helpGroups = document.createElement("div");
+  helpGroups.className = "help-groups";
+  SHORTCUT_GROUPS.forEach((group) => {
+    const section = document.createElement("section");
+    section.className = "help-group";
 
-    const keysWrap = document.createElement("span");
-    keysWrap.className = "help-shortcut-keys";
-    shortcut.keys.forEach((k) => {
-      const kbd = document.createElement("span");
-      kbd.className = "help-key";
-      kbd.textContent = k;
-      keysWrap.appendChild(kbd);
+    const heading = document.createElement("h3");
+    heading.className = "help-group-title";
+    heading.textContent = group.title;
+    section.appendChild(heading);
+
+    const helpList = document.createElement("ul");
+    helpList.className = "help-shortcut-list";
+    group.items.forEach((shortcut) => {
+      const item = document.createElement("li");
+
+      const keysWrap = document.createElement("span");
+      keysWrap.className = "help-shortcut-keys";
+      shortcut.keys.forEach((k, i) => {
+        if (i > 0 && shortcut.sep) {
+          const sep = document.createElement("span");
+          sep.className = "help-key-sep";
+          sep.textContent = shortcut.sep;
+          keysWrap.appendChild(sep);
+        }
+        const kbd = document.createElement("span");
+        kbd.className = "help-key";
+        kbd.textContent = k;
+        keysWrap.appendChild(kbd);
+      });
+
+      const descSpan = document.createElement("span");
+      descSpan.className = "help-shortcut-desc";
+      descSpan.textContent = shortcut.desc;
+
+      item.appendChild(keysWrap);
+      item.appendChild(descSpan);
+      helpList.appendChild(item);
     });
-
-    const descSpan = document.createElement("span");
-    descSpan.className = "help-shortcut-desc";
-    descSpan.textContent = shortcut.desc;
-
-    item.appendChild(keysWrap);
-    item.appendChild(descSpan);
-    helpList.appendChild(item);
+    section.appendChild(helpList);
+    helpGroups.appendChild(section);
   });
-  helpModal.appendChild(helpList);
+  helpBody.appendChild(helpGroups);
 
+  helpModal.appendChild(helpBody);
   helpOverlay.appendChild(helpModal);
   document.body.appendChild(helpOverlay);
 
+  // Last-resort guarantee that the window never scrolls: if the tightened
+  // CSS layout still doesn't fit (very small screens), scale the content
+  // down just enough.
+  function fitHelp() {
+    helpBody.style.zoom = "";
+    let zoom = 1;
+    while (helpModal.scrollHeight > helpModal.clientHeight + 1 && zoom > 0.5) {
+      zoom = Math.round((zoom - 0.05) * 100) / 100;
+      helpBody.style.zoom = zoom;
+    }
+  }
+
   function openHelp() {
     helpOverlay.classList.add("open");
+    fitHelp();
     helpClose.focus();
   }
+
+  window.addEventListener("resize", () => {
+    if (helpOverlay.classList.contains("open")) fitHelp();
+  });
 
   function closeHelp() {
     helpOverlay.classList.remove("open");
@@ -2287,13 +2350,46 @@ function findInDirection(current, direction, candidates) {
   return best;
 }
 
+function getRefreshUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("v", Date.now());
+  return url.href;
+}
+
+let hardRefreshing = false;
+
+// Reloads the current page (keeping its ?query) with a fresh v= so the HTML is
+// refetched, and first force-refreshes the shared CSS/JS in the HTTP cache,
+// since those URLs don't change and would otherwise stay stale.
+async function hardRefresh() {
+  if (hardRefreshing) return;
+  hardRefreshing = true;
+  try {
+    await Promise.race([
+      Promise.all(["/css/style.css", "/js/script.js", "/js/gtag.js"].map((u) => fetch(u, { cache: "reload" }))),
+      new Promise((resolve) => setTimeout(resolve, 2000)),
+    ]);
+  } catch (err) {
+    // offline or blocked: still do the reload below
+  }
+  window.location.assign(getRefreshUrl());
+}
+
 document.addEventListener("keydown", (e) => {
-  if (document.querySelector(".help-modal-overlay.open")) {
+  const activeTag = document.activeElement ? document.activeElement.tagName : "";
+  if (activeTag === "INPUT" || activeTag === "TEXTAREA" || (document.activeElement && document.activeElement.isContentEditable)) {
     return;
   }
 
-  const activeTag = document.activeElement ? document.activeElement.tagName : "";
-  if (activeTag === "INPUT" || activeTag === "TEXTAREA" || (document.activeElement && document.activeElement.isContentEditable)) {
+  // R refreshes on every page, even with the shortcuts window open. Leave
+  // Ctrl/Cmd+R alone (the browser's own reload) and ignore held-down repeats.
+  if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+    e.preventDefault();
+    if (!e.repeat) hardRefresh();
+    return;
+  }
+
+  if (document.querySelector(".help-modal-overlay.open")) {
     return;
   }
 
