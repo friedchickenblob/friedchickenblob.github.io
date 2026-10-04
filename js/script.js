@@ -1666,8 +1666,11 @@ document.addEventListener("DOMContentLoaded", () => {
   helpRefresh.className = "help-refresh";
   helpRefresh.innerHTML = `
     <p class="help-refresh-title">Not seeing the latest version?</p>
-    <a class="help-refresh-link" href="${window.location.origin}${window.location.pathname}?v=${Date.now()}">Click here to refresh the page</a>
+    <a class="help-refresh-link" href="#">Click here to refresh the page</a>
   `;
+  const refreshUrl = new URL(window.location.href);
+  refreshUrl.searchParams.set("v", Date.now());
+  helpRefresh.querySelector(".help-refresh-link").href = refreshUrl.href;
   helpModal.appendChild(helpRefresh);
 
   const helpHeader = document.createElement("div");
