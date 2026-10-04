@@ -1355,7 +1355,7 @@ const GAMES = {
     name: "Celeste",
     emoji: "🏔️",
     blurb: "A precision platformer about climbing a mountain, with tight controls and a story about anxiety and self-doubt wrapped into every jump.",
-    image: "/assets/games/celeste.png",
+    image: "/assets/games/celeste.jpg",
   },
   "chrono-trigger": {
     name: "Chrono Trigger",

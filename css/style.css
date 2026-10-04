@@ -1163,13 +1163,53 @@ h1 {
   margin: 0.5rem 0 1.25rem;
 }
 
+/* Game detail pages are sized to exactly fit the viewport: the image takes
+   whatever space is left under the text and scales down (never up, never
+   cropped) so the whole picture is always visible without scrolling. */
+body.game-page {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+}
+
+.game-page .content {
+  min-height: 0;
+}
+
+.game-page main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.game-page .game-emoji {
+  margin: 0.25rem 0 0.75rem;
+}
+
+.game-page footer {
+  padding: 0.75rem 1.5rem;
+}
+
+.game-image-wrap {
+  flex: 1 1 0;
+  min-height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
 .game-image {
   display: none;
-  width: 100%;
-  max-width: 480px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  margin: 1rem auto 0;
 }
 
 .game-image[src] {
