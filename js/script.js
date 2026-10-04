@@ -1952,26 +1952,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryKey = new URLSearchParams(window.location.search).get("category");
     const category = MUSIC[categoryKey];
 
-    function renderMusicTracks(tracks) {
-      musicTracks.innerHTML = "";
+    function renderMusicTracks(tracks, container) {
       tracks.forEach((track) => {
         const trackEl = document.createElement("div");
         trackEl.className = "music-track";
 
-        const heading = document.createElement("h2");
-        heading.textContent = track.title;
-        trackEl.appendChild(heading);
-
-        if (track.subtitle) {
-          const subtitle = document.createElement("p");
-          subtitle.className = "music-track-subtitle";
-          subtitle.textContent = track.subtitle;
-          trackEl.appendChild(subtitle);
-        }
-
         const embed = document.createElement("div");
         const iframe = document.createElement("iframe");
         iframe.title = track.title;
+        iframe.loading = "lazy";
 
         if (track.type === "youtube") {
           embed.className = "video-embed";
@@ -1985,9 +1974,21 @@ document.addEventListener("DOMContentLoaded", () => {
           iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
         }
 
+        // The song title fills the embed's slot until the embed has loaded,
+        // then fades away, leaving just the player (and nothing shifts).
+        const placeholder = document.createElement("div");
+        placeholder.className = "embed-placeholder";
+        placeholder.setAttribute("aria-hidden", "true");
+        placeholder.textContent = track.title;
+        iframe.addEventListener("load", () => {
+          placeholder.classList.add("embed-placeholder-done");
+          setTimeout(() => placeholder.remove(), 350);
+        });
+
+        embed.appendChild(placeholder);
         embed.appendChild(iframe);
         trackEl.appendChild(embed);
-        musicTracks.appendChild(trackEl);
+        container.appendChild(trackEl);
       });
     }
 
@@ -1998,23 +1999,38 @@ document.addEventListener("DOMContentLoaded", () => {
         const artistTabs = document.createElement("div");
         artistTabs.className = "music-artist-tabs";
 
+        // Each artist's list is built the first time it's opened and then kept
+        // (just hidden), so switching tabs never reloads the embeds.
+        const panels = [];
+        const showGroup = (index) => {
+          if (!panels[index]) {
+            const panel = document.createElement("div");
+            panel.className = "music-track-list";
+            renderMusicTracks(category.groups[index].tracks, panel);
+            panels[index] = panel;
+            musicTracks.appendChild(panel);
+          }
+          panels.forEach((panel, i) => {
+            panel.hidden = i !== index;
+          });
+          artistTabs.querySelectorAll(".music-artist-tab-btn").forEach((b, i) => {
+            b.classList.toggle("active", i === index);
+          });
+        };
+
         category.groups.forEach((group, i) => {
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = "music-artist-tab-btn" + (i === 0 ? " active" : "");
+          btn.className = "music-artist-tab-btn";
           btn.textContent = group.label;
-          btn.addEventListener("click", () => {
-            artistTabs.querySelectorAll(".music-artist-tab-btn").forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
-            renderMusicTracks(group.tracks);
-          });
+          btn.addEventListener("click", () => showGroup(i));
           artistTabs.appendChild(btn);
         });
 
         musicTracks.before(artistTabs);
-        renderMusicTracks(category.groups[0].tracks);
+        showGroup(0);
       } else {
-        renderMusicTracks(category.tracks);
+        renderMusicTracks(category.tracks, musicTracks);
       }
     } else {
       musicTitle.textContent = "Not found";
