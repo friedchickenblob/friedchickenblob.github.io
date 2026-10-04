@@ -1860,6 +1860,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (project.video && projectVideo) {
+        document.body.classList.add("project-fit");
         const iframe = document.createElement("iframe");
         iframe.src = `https://www.youtube.com/embed/${project.video}`;
         iframe.title = project.name;
