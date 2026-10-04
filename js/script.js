@@ -2091,8 +2091,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // then fades away, leaving just the player (and nothing shifts).
         const placeholder = document.createElement("div");
         placeholder.className = "embed-placeholder";
-        placeholder.setAttribute("aria-hidden", "true");
-        placeholder.textContent = track.title;
+        const titleLink = document.createElement("a");
+        titleLink.href = track.type === "youtube"
+          ? `https://www.youtube.com/watch?v=${track.id}`
+          : `https://open.spotify.com/${track.spotifyType || "track"}/${track.id}`;
+        titleLink.target = "_blank";
+        titleLink.rel = "noopener";
+        titleLink.textContent = track.title;
+        placeholder.appendChild(titleLink);
         const watchLoad = (iframe) => {
           iframe.addEventListener("load", () => {
             placeholder.classList.add("embed-placeholder-done");

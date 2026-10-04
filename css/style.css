@@ -858,6 +858,11 @@ h1 {
   transition: opacity 0.3s ease;
 }
 
+.embed-placeholder a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .embed-placeholder-done {
   opacity: 0;
   pointer-events: none;
