@@ -1296,6 +1296,13 @@ const PROJECTS = {
   },
 };
 
+// Same order as the tiles on the Fun page; A / D step through it.
+const GAME_ORDER = [
+  "plants-vs-zombies", "mario-party", "minecraft", "roblox",
+  "rollercoaster-tycoon", "cities-skylines", "sims-4", "stardew-valley",
+  "fortnite", "celeste", "chrono-trigger", "final-fantasy-7",
+];
+
 const GAMES = {
   "plants-vs-zombies": {
     name: "Plants vs. Zombies",
@@ -1648,6 +1655,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Move around a page",
       items: [
         { keys: ["W", "A", "S", "D"], desc: "Move between items (S on a tab opens it)" },
+        { keys: ["A", "D"], desc: "Previous / next game (on a game page)" },
         { keys: ["Space", "Enter"], sep: "or", desc: "Open the selected item" },
       ],
     },
@@ -2558,6 +2566,20 @@ document.addEventListener("keydown", (e) => {
     idx = (idx + delta + navLinks.length) % navLinks.length;
     navLinks[idx].focus();
     return;
+  }
+
+  // On a game page, A / D step to the previous / next game (wrapping around).
+  if ((key === "a" || key === "d") && document.body.classList.contains("game-page")) {
+    const gameKey = new URLSearchParams(window.location.search).get("game");
+    const at = GAME_ORDER.indexOf(gameKey);
+    if (at !== -1) {
+      e.preventDefault();
+      if (e.repeat) return;
+      const step = key === "d" ? 1 : -1;
+      const nextKey = GAME_ORDER[(at + step + GAME_ORDER.length) % GAME_ORDER.length];
+      window.location.replace(`/game/?game=${nextKey}`);
+      return;
+    }
   }
 
   if (key === "a" || key === "d" || key === "w" || key === "s") {
