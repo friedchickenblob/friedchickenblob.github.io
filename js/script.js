@@ -1952,27 +1952,132 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryKey = new URLSearchParams(window.location.search).get("category");
     const category = MUSIC[categoryKey];
 
+    // Autoplay-next: the Spotify and YouTube iframe APIs tell us when a song
+    // finishes, and the next embed in the same list is started. If an API
+    // fails to load the embeds still work as plain players.
+    let spotifyApi;
+    function loadSpotifyApi() {
+      if (!spotifyApi) {
+        spotifyApi = new Promise((resolve, reject) => {
+          window.onSpotifyIframeApiReady = resolve;
+          const script = document.createElement("script");
+          script.src = "https://open.spotify.com/embed/iframe-api/v1";
+          script.async = true;
+          script.onerror = reject;
+          document.head.appendChild(script);
+          setTimeout(reject, 8000);
+        });
+      }
+      return spotifyApi;
+    }
+
+    let youtubeApi;
+    function loadYouTubeApi() {
+      if (!youtubeApi) {
+        youtubeApi = new Promise((resolve, reject) => {
+          window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+          const script = document.createElement("script");
+          script.src = "https://www.youtube.com/iframe_api";
+          script.async = true;
+          script.onerror = reject;
+          document.head.appendChild(script);
+          setTimeout(reject, 8000);
+        });
+      }
+      return youtubeApi;
+    }
+
+    // Only one song plays at a time: starting one pauses the previous.
+    let activeSlot = null;
+    function markPlaying(slot) {
+      if (activeSlot && activeSlot !== slot) activeSlot.pause();
+      activeSlot = slot;
+    }
+
+    function playNext(slot) {
+      const next = slot.list[slot.index + 1];
+      if (!next) return;
+      const iframe = next.embed.querySelector("iframe");
+      if (iframe) iframe.loading = "eager";
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      next.embed.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      next.play();
+    }
+
+    // Spotify reports position/duration; a song has ended when it pauses at
+    // (or snaps back from) the end while it had been playing.
+    function spotifyEnded(duration, position, lastPosition) {
+      if (!duration) return false;
+      return position >= duration - 1000 || (position === 0 && lastPosition >= duration - 2000);
+    }
+
+    function mountSpotify(slot, track, spotifyType, embed, watchLoad) {
+      const fallback = () => {
+        if (embed.querySelector("iframe")) return;
+        const iframe = document.createElement("iframe");
+        iframe.title = track.title;
+        iframe.loading = "lazy";
+        iframe.src = `https://open.spotify.com/embed/${spotifyType}/${track.id}`;
+        iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+        watchLoad(iframe);
+        embed.appendChild(iframe);
+      };
+
+      const target = document.createElement("div");
+      embed.appendChild(target);
+      loadSpotifyApi().then((IFrameAPI) => {
+        const options = {
+          uri: `spotify:${spotifyType}:${track.id}`,
+          width: "100%",
+          height: spotifyType === "album" ? 352 : 152,
+        };
+        IFrameAPI.createController(target, options, (controller) => {
+          slot.api = { play: () => controller.play(), pause: () => controller.pause() };
+          if (slot.wantsPlay) slot.api.play();
+
+          let playing = false;
+          let lastPosition = 0;
+          controller.addListener("playback_update", (event) => {
+            const { isPaused, duration, position } = event.data;
+            if (!isPaused) {
+              if (!playing) markPlaying(slot);
+              playing = true;
+              lastPosition = position;
+            } else if (playing) {
+              playing = false;
+              if (spotifyEnded(duration, position, lastPosition)) playNext(slot);
+            }
+          });
+        });
+        const iframe = embed.querySelector("iframe");
+        if (iframe) watchLoad(iframe);
+      }).catch(fallback);
+    }
+
+    function mountYouTube(slot, iframe) {
+      loadYouTubeApi().then((YT) => {
+        new YT.Player(iframe, {
+          events: {
+            onReady: (event) => {
+              slot.api = { play: () => event.target.playVideo(), pause: () => event.target.pauseVideo() };
+              if (slot.wantsPlay) slot.api.play();
+            },
+            onStateChange: (event) => {
+              if (event.data === YT.PlayerState.PLAYING) markPlaying(slot);
+              else if (event.data === YT.PlayerState.ENDED) playNext(slot);
+            },
+          },
+        });
+      }).catch(() => {});
+    }
+
     function renderMusicTracks(tracks, container) {
-      tracks.forEach((track) => {
+      const slots = [];
+      tracks.forEach((track, index) => {
         const trackEl = document.createElement("div");
         trackEl.className = "music-track";
 
         const embed = document.createElement("div");
-        const iframe = document.createElement("iframe");
-        iframe.title = track.title;
-        iframe.loading = "lazy";
-
-        if (track.type === "youtube") {
-          embed.className = "video-embed";
-          iframe.src = `https://www.youtube.com/embed/${track.id}`;
-          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-          iframe.allowFullscreen = true;
-        } else if (track.type === "spotify") {
-          const spotifyType = track.spotifyType || "track";
-          embed.className = spotifyType === "album" ? "spotify-embed spotify-embed-album" : "spotify-embed";
-          iframe.src = `https://open.spotify.com/embed/${spotifyType}/${track.id}`;
-          iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-        }
 
         // The song title fills the embed's slot until the embed has loaded,
         // then fades away, leaving just the player (and nothing shifts).
@@ -1980,13 +2085,42 @@ document.addEventListener("DOMContentLoaded", () => {
         placeholder.className = "embed-placeholder";
         placeholder.setAttribute("aria-hidden", "true");
         placeholder.textContent = track.title;
-        iframe.addEventListener("load", () => {
-          placeholder.classList.add("embed-placeholder-done");
-          setTimeout(() => placeholder.remove(), 350);
-        });
-
+        const watchLoad = (iframe) => {
+          iframe.addEventListener("load", () => {
+            placeholder.classList.add("embed-placeholder-done");
+            setTimeout(() => placeholder.remove(), 350);
+          });
+        };
         embed.appendChild(placeholder);
-        embed.appendChild(iframe);
+
+        const slot = { list: slots, index, embed, api: null, wantsPlay: false };
+        slot.play = () => {
+          slot.wantsPlay = true;
+          if (slot.api) slot.api.play();
+        };
+        slot.pause = () => {
+          slot.wantsPlay = false;
+          if (slot.api) slot.api.pause();
+        };
+        slots.push(slot);
+
+        if (track.type === "youtube") {
+          embed.className = "video-embed";
+          const iframe = document.createElement("iframe");
+          iframe.title = track.title;
+          iframe.loading = "lazy";
+          iframe.src = `https://www.youtube.com/embed/${track.id}?enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          watchLoad(iframe);
+          embed.appendChild(iframe);
+          mountYouTube(slot, iframe);
+        } else if (track.type === "spotify") {
+          const spotifyType = track.spotifyType || "track";
+          embed.className = spotifyType === "album" ? "spotify-embed spotify-embed-album" : "spotify-embed";
+          mountSpotify(slot, track, spotifyType, embed, watchLoad);
+        }
+
         trackEl.appendChild(embed);
         container.appendChild(trackEl);
       });
