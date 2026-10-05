@@ -1243,6 +1243,9 @@ const MUSIC = {
       { title: "Nếu lúc đó", subtitle: "tlinh ft. 2pillz", type: "youtube", id: "fyMgBQioTLo" },
       { title: "Introvert", subtitle: "Little Simz", type: "youtube", id: "hxfGQ2AJHGk" },
       { title: "No Tears Left to Cry", subtitle: "Ariana Grande", type: "youtube", id: "ffxKSjUwKdU" },
+      { title: "7월 7일 (One Of These Nights)", subtitle: "Red Velvet 레드벨벳", type: "youtube", id: "9xWiro_tS1k" },
+      { title: "ลามปาม (circus)", subtitle: "BOWKYLION ft. Jeff Satur", type: "youtube", id: "8zsY7HiM25o" },
+      { title: "ラビリンス (Labyrinth)", subtitle: "MONDO GROSSO", type: "youtube", id: "_2quiyHfJQw" },
     ],
   },
   luvsic: {
