@@ -2216,6 +2216,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll(".tab-buttons button");
 
   function activateTab(target) {
+    document.documentElement.removeAttribute("data-fun-tab");
     tabButtons.forEach((btn) => {
       const isTarget = btn.getAttribute("data-tab") === target;
       btn.classList.toggle("active", isTarget);
@@ -2231,6 +2232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedTab && document.getElementById(savedTab)) {
       activateTab(savedTab);
     }
+    document.documentElement.removeAttribute("data-fun-tab");
   }
 
   tabButtons.forEach((button) => {

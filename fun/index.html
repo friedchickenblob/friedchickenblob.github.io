@@ -9,6 +9,16 @@
       document.documentElement.classList.add("dark-mode");
     }
   </script>
+  <script>
+    // Mark the remembered tab before the first paint (see style.css) so the
+    // page opens on it instead of flashing languagez first.
+    try {
+      var funTab = localStorage.getItem("funActiveTab");
+      if (["languages", "music", "games", "food"].indexOf(funTab) !== -1) {
+        document.documentElement.setAttribute("data-fun-tab", funTab);
+      }
+    } catch (err) {}
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fun</title>
   <link rel="stylesheet" href="/css/style.css" />

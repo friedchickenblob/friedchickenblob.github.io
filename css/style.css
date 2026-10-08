@@ -694,6 +694,35 @@ h1 {
   display: block;
 }
 
+/* The Fun page's head script sets data-fun-tab to the remembered tab, so the
+   right tab is showing from the very first paint. script.js removes it once
+   it has set the same state with classes. */
+html[data-fun-tab] .tab-panel {
+  display: none;
+}
+
+html[data-fun-tab="languages"] #languages,
+html[data-fun-tab="music"] #music,
+html[data-fun-tab="games"] #games,
+html[data-fun-tab="food"] #food {
+  display: block;
+}
+
+html[data-fun-tab] .tab-buttons button.active {
+  color: var(--text);
+  border-color: transparent;
+  background: none;
+}
+
+html[data-fun-tab="languages"] .tab-buttons button[data-tab="languages"],
+html[data-fun-tab="music"] .tab-buttons button[data-tab="music"],
+html[data-fun-tab="games"] .tab-buttons button[data-tab="games"],
+html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
+  color: var(--accent);
+  border-color: var(--accent-light);
+  background: color-mix(in srgb, var(--accent-light) 25%, transparent);
+}
+
 .tile-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
