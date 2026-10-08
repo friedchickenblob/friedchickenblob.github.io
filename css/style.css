@@ -1513,7 +1513,9 @@ footer {
   }
 
   header {
-    position: static;
+    position: sticky;
+    top: 0;
+    z-index: 8000;
     height: auto;
     width: 100%;
     border-right: none;
@@ -1536,7 +1538,7 @@ footer {
   }
 
   .theme-toggle {
-    position: absolute;
+    position: fixed;
     top: 0.5rem;
     right: 0.75rem;
     bottom: auto;
@@ -1720,5 +1722,66 @@ footer {
   .game-image-wrap,
   .project-fit .project-video-wrap {
     min-height: 13rem;
+  }
+}
+
+/* Phones: a lone last tile (like Chicken Noodle Soup) sits centred under the
+   two-column grid, matching the wider layouts. */
+@media (max-width: 640px) {
+  .tile-grid > :last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    width: calc((100% - 1rem) / 2);
+    justify-self: center;
+  }
+
+  /* Home page: exactly one screen. The picture takes whatever room is left
+     between the heading and the footer, so nothing scrolls. */
+  body.home-page {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+  }
+
+  .home-page .content {
+    min-height: 0;
+  }
+
+  .home-page main {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .home-page .hero {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-page .hero h1 {
+    margin-top: 0;
+  }
+
+  .home-page .hero-img-toggle {
+    flex: 1 1 0;
+    min-height: 0;
+    width: auto;
+    max-width: 100%;
+    margin: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-page .hero img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 }
