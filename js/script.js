@@ -1402,7 +1402,7 @@ const RECIPES = {
       "Add the chicken broth and chicken breasts, then bring to a boil.",
       "Reduce heat and simmer until the chicken is cooked through, about 15 minutes.",
       "Remove the chicken, shred it with two forks, and return it to the pot.",
-      "Add the egg noodles and cook until tender, about 6-8 minutes.",
+      "Add the egg noodles and cook until tender, about 6-7 minutes.",
       "Season with the potassium chloride salt substitute and pepper, top with fresh parsley, and serve hot.",
       "Stir in a spoonful of Lao Gan Ma if you want extra heat and savoriness (optional).",
     ],
@@ -1890,6 +1890,31 @@ document.addEventListener("DOMContentLoaded", () => {
         gameImage.src = game.image;
         gameImage.alt = game.name;
       }
+
+      // On phones the title shares a line with the emoji: the title starts at
+      // the description's left edge and the emoji ends at its right edge, with
+      // the title sized to use the room between them.
+      const gameHead = document.querySelector(".game-head");
+      const phone = window.matchMedia("(max-width: 640px)");
+      const fitGameHead = () => {
+        if (!gameHead) return;
+        gameTitle.style.fontSize = "";
+        if (!phone.matches) return;
+
+        const probe = 100;
+        gameTitle.style.fontSize = `${probe}px`;
+        gameTitle.style.width = "max-content";
+        const textWidth = gameTitle.getBoundingClientRect().width;
+        gameTitle.style.width = "";
+        const emojiWidth = gameEmoji.getBoundingClientRect().width + 8;
+        const available = gameHead.clientWidth - emojiWidth;
+        const size = Math.max(12, Math.min(28, (probe * available) / textWidth));
+        gameTitle.style.fontSize = `${size}px`;
+      };
+      window.addEventListener("resize", fitGameHead);
+      phone.addEventListener("change", fitGameHead);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitGameHead);
+      fitGameHead();
     } else {
       gameTitle.textContent = "Game not found";
     }
