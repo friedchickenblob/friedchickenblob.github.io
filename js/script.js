@@ -626,7 +626,7 @@ const LANGUAGE_FACTS = {
     name: "North Korean",
     facts: [
       "North Korea uses the same Hangul alphabet as South Korea, but has developed distinct vocabulary and pronunciation since the peninsula's division.",
-      'North Korean Korean, called Munhwaŏ ("cultured language"), purged many Chinese-derived and foreign loanwords in favor of native Korean coinages.',
+      'North Korean Korean, called Munhwaŏ ("cultured language"), purged many Chinese-derived and foreign loanwords in favour of native Korean coinages.',
     ],
     basics: {
       writing: "Uses the same Hangul alphabet as South Korea ~ see that page for the consonants and vowels.",
@@ -765,7 +765,7 @@ const LANGUAGE_FACTS = {
     name: "Khmer",
     facts: [
       "Khmer has one of the longest alphabets of any language, with 74 letters including consonants, vowels, and diacritics.",
-      "Unlike many neighboring languages, Khmer is not tonal, relying instead on vowel length and quality to distinguish words.",
+      "Unlike many neighbouring languages, Khmer is not tonal, relying instead on vowel length and quality to distinguish words.",
     ],
     basics: {
       writing: "Khmer script is an abugida with 74 characters in total, including vowels that change shape around consonants.",
@@ -839,7 +839,7 @@ const LANGUAGE_FACTS = {
   uae: {
     name: "Emirati Arabic",
     facts: [
-      "Emirati Arabic is a Gulf dialect shared with neighboring countries, shaped historically by trade routes across the Arabian Peninsula and Indian Ocean.",
+      "Emirati Arabic is a Gulf dialect shared with neighbouring countries, shaped historically by trade routes across the Arabian Peninsula and Indian Ocean.",
       "Because expatriates make up most of the UAE's population, Emirati Arabic speakers are often a linguistic minority in their own cities, alongside widely spoken English, Hindi, and Urdu.",
     ],
     basics: {
@@ -1310,7 +1310,7 @@ const GAMES = {
   "plants-vs-zombies": {
     name: "Plants vs. Zombies",
     emoji: "🌻",
-    blurb: "A tower-defense classic where you line up sunflowers, peashooters, and oddball plants to stop a goofy zombie invasion from reaching your house.",
+    blurb: "A tower-defence classic where you line up sunflowers, peashooters, and oddball plants to stop a goofy zombie invasion from reaching your house.",
     image: "/assets/games/plants-vs-zombies.jpg",
   },
   "mario-party": {
@@ -1404,7 +1404,7 @@ const RECIPES = {
       "Remove the chicken, shred it with two forks, and return it to the pot.",
       "Add the egg noodles and cook until tender, about 6-7 minutes.",
       "Season with the potassium chloride salt substitute and pepper, top with fresh parsley, and serve hot.",
-      "Stir in a spoonful of Lao Gan Ma if you want extra heat and savoriness (optional).",
+      "Stir in a spoonful of Lao Gan Ma if you want extra heat and savouriness (optional).",
     ],
     author: 'Jordan "Chicken" Kwan',
   },
