@@ -1260,6 +1260,7 @@ const MUSIC = {
     name: "Singlez",
     tracks: [
       { title: "STUNNER", subtitle: "TEN", type: "youtube", id: "LfoIQZf9Hqs" },
+      { title: "Akin Ka Na Lang", subtitle: "Morisette", type: "youtube", id: "p2FXQgtmPDw" },
       { title: "Nếu lúc đó", subtitle: "tlinh ft. 2pillz", type: "youtube", id: "fyMgBQioTLo" },
       { title: "Introvert", subtitle: "Little Simz", type: "youtube", id: "hxfGQ2AJHGk" },
       { title: "No Tears Left to Cry", subtitle: "Ariana Grande", type: "youtube", id: "ffxKSjUwKdU" },
