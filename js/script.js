@@ -2581,7 +2581,7 @@ async function hardRefresh() {
   hardRefreshing = true;
   try {
     await Promise.race([
-      Promise.all(["/css/style.css", "/js/script.js", "/js/gtag.js"].map((u) => fetch(u, { cache: "reload" }))),
+      Promise.all(["/css/style.css", "/js/script.js"].map((u) => fetch(u, { cache: "reload" }))),
       new Promise((resolve) => setTimeout(resolve, 2000)),
     ]);
   } catch (err) {
