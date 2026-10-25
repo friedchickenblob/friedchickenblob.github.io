@@ -1308,6 +1308,41 @@ const PROJECTS = {
       "/assets/hire-power/007.png",
     ],
   },
+  "dream-team-hub": {
+    name: "Dream Team Hub ✨",
+    blurb: "Roblox, but better",
+    coauthors: [
+      { name: "Sean", photo: "/assets/coauthors/sean.png", linkedin: "https://www.linkedin.com/in/seanhuang1" },
+    ],
+    links: [
+      { label: "Website", url: "https://dreamteamhub.ca/" },
+      { label: "GitHub", url: "https://github.com/Chicken-Dream/DreamTeamHub" },
+    ],
+    images: [
+      "/assets/dream-team-hub/bomberman.jpg",
+      "/assets/dream-team-hub/canyourpet.png",
+      "/assets/dream-team-hub/tank.png",
+      "/assets/dream-team-hub/tsumego.png",
+      "/assets/dream-team-hub/flappyduel.png",
+    ],
+  },
+  "chicks-events": {
+    name: "ChicksEvents 🐥",
+    blurb: "An event management Android app made by chicks.",
+    coauthors: [
+      { name: "Jinn", photo: "/assets/coauthors/jinn.jpg", linkedin: "https://www.linkedin.com/in/jin-kasai/" },
+      { name: "Hanh", photo: "/assets/coauthors/hanh.png", linkedin: "https://www.linkedin.com/in/hanh-mong-15366229b/" },
+      { name: "Zoe", photo: "/assets/coauthors/dung.jpg", linkedin: "https://www.linkedin.com/in/dam-dung-nguyen-mong-b88952358/" },
+      { name: "Juan", photo: "/assets/coauthors/juan.png", linkedin: "https://www.linkedin.com/in/juan-rea7/" },
+    ],
+    images: [
+      "/assets/chicks-events/01.png",
+      "/assets/chicks-events/02.png",
+      "/assets/chicks-events/03.png",
+      "/assets/chicks-events/04.png",
+      "/assets/chicks-events/05.png",
+    ],
+  },
   snowsocial: {
     name: "SnowSocial ❄️",
     blurb: "A REST API federation project. Think five different Twitter-like networks, all talking to each other.",
@@ -1946,6 +1981,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectVideo = document.getElementById("project-video");
   const projectGallery = document.getElementById("project-gallery");
   const projectCoauthors = document.getElementById("project-coauthors");
+  const projectLinks = document.getElementById("project-links");
   if (projectTitle && projectBlurb) {
     const projectKey = new URLSearchParams(window.location.search).get("project");
     const project = PROJECTS[projectKey];
@@ -1963,11 +1999,20 @@ document.addEventListener("DOMContentLoaded", () => {
           link.rel = "noopener noreferrer";
           link.setAttribute("aria-label", `${coauthor.name} on LinkedIn`);
 
-          const photo = document.createElement("img");
-          photo.className = "coauthor-photo";
-          photo.src = coauthor.photo;
-          photo.alt = coauthor.name;
-          photo.loading = "lazy";
+          // Without a photo the chip shows the person's initial instead.
+          let photo;
+          if (coauthor.photo) {
+            photo = document.createElement("img");
+            photo.className = "coauthor-photo";
+            photo.src = coauthor.photo;
+            photo.alt = coauthor.name;
+            photo.loading = "lazy";
+          } else {
+            photo = document.createElement("span");
+            photo.className = "coauthor-photo coauthor-initial";
+            photo.setAttribute("aria-hidden", "true");
+            photo.textContent = coauthor.name.charAt(0).toUpperCase();
+          }
 
           const name = document.createElement("span");
           name.className = "coauthor-name";
@@ -1976,6 +2021,17 @@ document.addEventListener("DOMContentLoaded", () => {
           link.appendChild(photo);
           link.appendChild(name);
           projectCoauthors.appendChild(link);
+        });
+      }
+
+      if (project.links && projectLinks) {
+        project.links.forEach((item) => {
+          const link = document.createElement("a");
+          link.href = item.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = item.label;
+          projectLinks.appendChild(link);
         });
       }
 

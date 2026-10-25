@@ -1298,6 +1298,18 @@ html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
   transform: translateY(-2px);
 }
 
+/* Dream Team Hub: a bolder border, with padding trimmed to match so the card
+   stays the same size as its neighbours. */
+.project-link-featured {
+  border-width: 2px;
+  border-color: var(--accent);
+  padding: calc(1rem - 1px) calc(1.25rem - 1px);
+}
+
+.project-link-featured:hover {
+  border-color: var(--accent);
+}
+
 .project-link .project-name {
   color: var(--accent);
 }
@@ -1332,6 +1344,32 @@ html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.coauthor-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent-light) 35%, transparent);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+.project-links:empty {
+  display: none;
+}
+
+.project-links a {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .coauthor-name {
