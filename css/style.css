@@ -1298,12 +1298,12 @@ html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
   transform: translateY(-2px);
 }
 
-/* Dream Team Hub: a bolder border, with padding trimmed to match so the card
-   stays the same size as its neighbours. */
+/* Dream Team Hub: a thick green border, with padding trimmed to match so the
+   card stays the same size as its neighbours. */
 .project-link-featured {
-  border-width: 2px;
+  border-width: 5px;
   border-color: var(--accent);
-  padding: calc(1rem - 1px) calc(1.25rem - 1px);
+  padding: calc(1rem - 4px) calc(1.25rem - 4px);
 }
 
 .project-link-featured:hover {
