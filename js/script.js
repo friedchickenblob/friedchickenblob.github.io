@@ -1333,6 +1333,7 @@ const PROJECTS = {
       { name: "Jinn", photo: "/assets/coauthors/jinn.jpg", linkedin: "https://www.linkedin.com/in/jin-kasai/" },
       { name: "Hanh", photo: "/assets/coauthors/hanh.png", linkedin: "https://www.linkedin.com/in/hanh-mong-15366229b/" },
       { name: "Zoe", photo: "/assets/coauthors/dung.jpg", linkedin: "https://www.linkedin.com/in/dam-dung-nguyen-mong-b88952358/" },
+      { name: "Eric", photo: "/assets/coauthors/eric.jpg", url: "https://www.youtube.com/watch?v=Ct6BUPvE2sM", site: "YouTube" },
       { name: "Juan", photo: "/assets/coauthors/juan.png", linkedin: "https://www.linkedin.com/in/juan-rea7/" },
     ],
     images: [
@@ -1994,10 +1995,10 @@ document.addEventListener("DOMContentLoaded", () => {
         project.coauthors.forEach((coauthor) => {
           const link = document.createElement("a");
           link.className = "coauthor-chip";
-          link.href = coauthor.linkedin;
+          link.href = coauthor.url || coauthor.linkedin;
           link.target = "_blank";
           link.rel = "noopener noreferrer";
-          link.setAttribute("aria-label", `${coauthor.name} on LinkedIn`);
+          link.setAttribute("aria-label", `${coauthor.name} on ${coauthor.site || "LinkedIn"}`);
 
           // Without a photo the chip shows the person's initial instead.
           let photo;
