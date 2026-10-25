@@ -905,6 +905,88 @@ html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
   margin: 0 0 1.5rem;
 }
 
+.album-graph {
+  position: relative;
+  width: min(100%, 520px);
+  margin: 0.5rem auto 2rem;
+}
+
+/* The Albumz graph page is exactly one viewport tall: the graph takes the
+   room left under the title and scales down to fit, so it never scrolls. */
+body.music-graph-page {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+}
+
+.music-graph-page .content {
+  min-height: 0;
+}
+
+.music-graph-page main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-bottom: 1rem;
+}
+
+.album-graph-wrap {
+  flex: 1 1 0;
+  min-height: 0;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-graph-wrap .album-graph {
+  width: min(100cqw, 520px, calc(100cqh * var(--graph-ratio, 1)));
+  margin: 0;
+}
+
+.album-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.album-lines line {
+  stroke: var(--accent-light);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.album-node {
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 3px solid var(--border);
+  border-radius: 16%;
+  background: var(--nav-bg);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.album-node img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-node:hover,
+.album-node:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-light) 45%, transparent), 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
 .music-artist-tab-btn {
   background: none;
   border: 2px solid transparent;

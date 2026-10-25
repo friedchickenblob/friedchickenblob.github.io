@@ -1180,6 +1180,7 @@ const MUSIC = {
       {
         key: "dua-lipa",
         label: "Dua Lipa",
+        image: "/assets/albums/dua-lipa.png",
         tracks: [
           { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
           { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
@@ -1197,6 +1198,7 @@ const MUSIC = {
       {
         key: "sza",
         label: "SZA",
+        image: "/assets/albums/sza.png",
         tracks: [
           { title: "SOS", subtitle: "SZA", type: "spotify", id: "5xMw6qCcpd2gBXPGTegC4W" },
           { title: "Kill Bill", subtitle: "SZA", type: "spotify", id: "3OHfY25tqY28d16oZczHc8" },
@@ -1226,6 +1228,7 @@ const MUSIC = {
       {
         key: "camila-cabello",
         label: "Camila Cabello",
+        image: "/assets/albums/camila-cabello.png",
         tracks: [
           { title: "Shameless", subtitle: "Camila Cabello", type: "spotify", id: "2ogKhhoMClkFXek7ZgxAhN" },
           { title: "Living Proof", subtitle: "Camila Cabello", type: "spotify", id: "4jFD7byoPdGkEdjHLMduR9" },
@@ -2250,39 +2253,126 @@ document.addEventListener("DOMContentLoaded", () => {
       musicTitle.textContent = category.name;
 
       if (category.groups && category.groups.length) {
-        const artistTabs = document.createElement("div");
-        artistTabs.className = "music-artist-tabs";
+        // Groups with cover art open from a web of linked square nodes (a
+        // triangle for three, a star for five). Picking one opens its own
+        // page (&artist=...) that lists every artist as tabs, as before.
+        const groupLinkable = category.groups.every((group) => group.image);
+        const artistParam = new URLSearchParams(window.location.search).get("artist");
+        const startIndex = category.groups.findIndex((group) => group.key === artistParam);
 
-        // Each artist's list is built the first time it's opened and then kept
-        // (just hidden), so switching tabs never reloads the embeds.
-        const panels = [];
-        const showGroup = (index) => {
-          if (!panels[index]) {
-            const panel = document.createElement("div");
-            panel.className = "music-track-list";
-            renderMusicTracks(category.groups[index].tracks, panel);
-            panels[index] = panel;
-            musicTracks.appendChild(panel);
+        if (groupLinkable && startIndex === -1) {
+          // Nodes sit evenly around a circle, starting at the top and going
+          // anticlockwise, so the second lands bottom-left and the third
+          // bottom-right (the same order as the tabs). Everything is measured
+          // in units of the circle's radius, so the box is sized to hug the
+          // nodes. Five nodes join every other one (a star); otherwise every
+          // pair is joined.
+          const graphWrap = document.createElement("div");
+          graphWrap.className = "album-graph-wrap";
+          const graph = document.createElement("div");
+          graph.className = "album-graph";
+          graphWrap.appendChild(graph);
+          const count = category.groups.length;
+          const half = 0.5;
+          const points = category.groups.map((group, i) => {
+            const angle = -Math.PI / 2 - (2 * Math.PI * i) / count;
+            return { x: Math.cos(angle), y: Math.sin(angle) };
+          });
+          const minX = Math.min(...points.map((p) => p.x));
+          const minY = Math.min(...points.map((p) => p.y));
+          const width = Math.max(...points.map((p) => p.x)) - minX + 2 * half;
+          const height = Math.max(...points.map((p) => p.y)) - minY + 2 * half;
+          points.forEach((p) => {
+            p.x = p.x - minX + half;
+            p.y = p.y - minY + half;
+          });
+          graph.style.aspectRatio = `${width} / ${height}`;
+          graph.style.setProperty("--graph-ratio", width / height);
+
+          const svgNS = "http://www.w3.org/2000/svg";
+          const lines = document.createElementNS(svgNS, "svg");
+          lines.setAttribute("class", "album-lines");
+          lines.setAttribute("viewBox", `0 0 ${width} ${height}`);
+          lines.setAttribute("aria-hidden", "true");
+          for (let i = 0; i < count; i++) {
+            for (let j = i + 1; j < count; j++) {
+              const gap = Math.min(j - i, count - (j - i));
+              if (count === 5 && gap !== 2) continue;
+              const line = document.createElementNS(svgNS, "line");
+              line.setAttribute("x1", points[i].x);
+              line.setAttribute("y1", points[i].y);
+              line.setAttribute("x2", points[j].x);
+              line.setAttribute("y2", points[j].y);
+              lines.appendChild(line);
+            }
           }
-          panels.forEach((panel, i) => {
-            panel.hidden = i !== index;
-          });
-          artistTabs.querySelectorAll(".music-artist-tab-btn").forEach((b, i) => {
-            b.classList.toggle("active", i === index);
-          });
-        };
+          graph.appendChild(lines);
 
-        category.groups.forEach((group, i) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "music-artist-tab-btn";
-          btn.textContent = group.label;
-          btn.addEventListener("click", () => showGroup(i));
-          artistTabs.appendChild(btn);
-        });
+          category.groups.forEach((group, i) => {
+            const node = document.createElement("a");
+            node.className = "album-node";
+            node.href = `/music/?category=${encodeURIComponent(categoryKey)}&artist=${encodeURIComponent(group.key)}`;
+            node.title = group.label;
+            node.setAttribute("aria-label", group.label);
+            node.style.left = `${(points[i].x / width) * 100}%`;
+            node.style.top = `${(points[i].y / height) * 100}%`;
+            node.style.width = `${((2 * half) / width) * 100}%`;
 
-        musicTracks.before(artistTabs);
-        showGroup(0);
+            const cover = document.createElement("img");
+            cover.src = group.image;
+            cover.alt = "";
+            node.appendChild(cover);
+            graph.appendChild(node);
+          });
+          musicTracks.before(graphWrap);
+          musicTracks.hidden = true;
+          document.body.classList.add("music-graph-page");
+        } else {
+          const backLink = document.querySelector(".back-link");
+          if (groupLinkable && backLink) {
+            backLink.href = `/music/?category=${encodeURIComponent(categoryKey)}`;
+            backLink.textContent = `← Back to ${category.name}`;
+          }
+
+          const artistTabs = document.createElement("div");
+          artistTabs.className = "music-artist-tabs";
+
+          // Each artist's list is built the first time it's opened and then kept
+          // (just hidden), so switching tabs never reloads the embeds.
+          const panels = [];
+          const showGroup = (index) => {
+            if (!panels[index]) {
+              const panel = document.createElement("div");
+              panel.className = "music-track-list";
+              renderMusicTracks(category.groups[index].tracks, panel);
+              panels[index] = panel;
+              musicTracks.appendChild(panel);
+            }
+            panels.forEach((panel, i) => {
+              panel.hidden = i !== index;
+            });
+            artistTabs.querySelectorAll(".music-artist-tab-btn").forEach((b, i) => {
+              b.classList.toggle("active", i === index);
+            });
+            if (groupLinkable) {
+              const url = new URL(window.location.href);
+              url.searchParams.set("artist", category.groups[index].key);
+              window.history.replaceState(window.history.state, "", url);
+            }
+          };
+
+          category.groups.forEach((group, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "music-artist-tab-btn";
+            btn.textContent = group.label;
+            btn.addEventListener("click", () => showGroup(i));
+            artistTabs.appendChild(btn);
+          });
+
+          musicTracks.before(artistTabs);
+          showGroup(Math.max(startIndex, 0));
+        }
       } else {
         renderMusicTracks(category.tracks, musicTracks);
       }
