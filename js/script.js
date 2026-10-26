@@ -1178,27 +1178,31 @@ const MUSIC = {
     name: "Albumz",
     groups: [
       {
-        key: "dua-lipa",
-        label: "Dua Lipa",
-        image: "/assets/albums/dua-lipa.png",
+        key: "ariana-grande",
+        label: "Ariana Grande",
+        image: "/assets/albums/ariana-grande.png",
+        slot: 0,
         tracks: [
-          { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
-          { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
-          { title: "Cool", subtitle: "Dua Lipa", type: "spotify", id: "2nMOodYNHBAQ3Kc1QNimZU" },
-          { title: "Physical", subtitle: "Dua Lipa", type: "spotify", id: "3AzjcOeAmA57TIOr9zF1ZW" },
-          { title: "Levitating", subtitle: "Dua Lipa", type: "spotify", id: "39LLxExYz6ewLAcYrzQQyP" },
-          { title: "Pretty Please", subtitle: "Dua Lipa", type: "spotify", id: "6DXZiYUbrYgrVIhfX3U9Z2" },
-          { title: "Hallucinate", subtitle: "Dua Lipa", type: "spotify", id: "1nYeVF5vIBxMxfPoL0SIWg" },
-          { title: "Love Again", subtitle: "Dua Lipa", type: "spotify", id: "4rPkN1FMzQyFNP9cLUGIIB" },
-          { title: "Break My Heart", subtitle: "Dua Lipa", type: "spotify", id: "017PF4Q3l4DBUiWoXk4OWT" },
-          { title: "Good in Bed", subtitle: "Dua Lipa", type: "spotify", id: "6uAFJ75WDAoAPyCWJAtvks" },
-          { title: "Boys Will Be Boys", subtitle: "Dua Lipa", type: "spotify", id: "0vQcyuMEfRBd21ojZ62N2L" },
+          { title: "intro (end of the world)", subtitle: "Ariana Grande", type: "spotify", id: "2o1pb13quMReXZqE7jWsgq" },
+          { title: "bye", subtitle: "Ariana Grande", type: "spotify", id: "1Rweq7vNjK4kZBbGrmxQsl" },
+          { title: "don't wanna break up again", subtitle: "Ariana Grande", type: "spotify", id: "0o3ua5ufFK7nfRzbDUNoGA" },
+          { title: "Saturn Returns Interlude", subtitle: "Ariana Grande", type: "spotify", id: "13jRSCLoWbCoU1XEdJRbgn" },
+          { title: "eternal sunshine", subtitle: "Ariana Grande", type: "spotify", id: "3RwWW7KeVhHGayYJgUL5eZ" },
+          { title: "supernatural", subtitle: "Ariana Grande", type: "spotify", id: "142PiXzA84lmEw2RstFHFa" },
+          { title: "true story", subtitle: "Ariana Grande", type: "spotify", id: "14kyXBpg91RVq8bNRDS1q2" },
+          { title: "the boy is mine", subtitle: "Ariana Grande", type: "spotify", id: "0Lmbke3KNVFXtoH2mMSHCw" },
+          { title: "yes, and?", subtitle: "Ariana Grande", type: "spotify", id: "5D34wRmbFS29AjtTOP2QJe" },
+          { title: "we can't be friends (wait for your love)", subtitle: "Ariana Grande", type: "spotify", id: "51ZQ1vr10ffzbwIjDCwqm4" },
+          { title: "i wish i hated you", subtitle: "Ariana Grande", type: "spotify", id: "5cQX9BexkPIEESTZijJhXg" },
+          { title: "imperfect for you", subtitle: "Ariana Grande", type: "spotify", id: "6XXKB32Om6WuXg3uEWwTob" },
+          { title: "ordinary things (feat. Nonna)", subtitle: "Ariana Grande ft. Nonna", type: "spotify", id: "4mHM5d2fK3n8xgymjf92w2" },
         ],
       },
       {
         key: "sza",
         label: "SZA",
         image: "/assets/albums/sza.png",
+        slot: 4,
         tracks: [
           { title: "SOS", subtitle: "SZA", type: "spotify", id: "5xMw6qCcpd2gBXPGTegC4W" },
           { title: "Kill Bill", subtitle: "SZA", type: "spotify", id: "3OHfY25tqY28d16oZczHc8" },
@@ -1229,6 +1233,7 @@ const MUSIC = {
         key: "camila-cabello",
         label: "Camila Cabello",
         image: "/assets/albums/camila-cabello.png",
+        slot: 1,
         tracks: [
           { title: "Shameless", subtitle: "Camila Cabello", type: "spotify", id: "2ogKhhoMClkFXek7ZgxAhN" },
           { title: "Living Proof", subtitle: "Camila Cabello", type: "spotify", id: "4jFD7byoPdGkEdjHLMduR9" },
@@ -1244,6 +1249,48 @@ const MUSIC = {
           { title: "This Love", subtitle: "Camila Cabello", type: "spotify", id: "7cHje4KLujM18aBSLvaySE" },
           { title: "Used to This", subtitle: "Camila Cabello", type: "spotify", id: "3r73OmpBtQAwMgawxOmlg0" },
           { title: "First Man", subtitle: "Camila Cabello", type: "spotify", id: "6TRt2bniIq0EIlrDlje7b8" },
+        ],
+      },
+      {
+        key: "charli-xcx",
+        label: "Charli xcx",
+        image: "/assets/albums/charli-xcx.png",
+        slot: 3,
+        tracks: [
+          { title: "360", subtitle: "Charli xcx", type: "spotify", id: "4w2GLmK2wnioVnb5CPQeex" },
+          { title: "Club classics", subtitle: "Charli xcx", type: "spotify", id: "0CySZwyRJ0vyUqtSjM9i2k" },
+          { title: "Sympathy is a knife", subtitle: "Charli xcx", type: "spotify", id: "5c9tBmJKbTdn1vhzXHeAwW" },
+          { title: "I might say something stupid", subtitle: "Charli xcx", type: "spotify", id: "0PFZCt7UNmpas24HejQGu8" },
+          { title: "Talk talk", subtitle: "Charli xcx", type: "spotify", id: "62fqMvguJbsSs9HKhhRfuS" },
+          { title: "Von dutch", subtitle: "Charli xcx", type: "spotify", id: "3Y1EvIgEVw51XtgNEgpz5c" },
+          { title: "Everything is romantic", subtitle: "Charli xcx", type: "spotify", id: "5sMEEjviCkH6Rp5X2ZvIIc" },
+          { title: "Rewind", subtitle: "Charli xcx", type: "spotify", id: "50GxvQA2KEWNt31EdwIlzY" },
+          { title: "So I", subtitle: "Charli xcx", type: "spotify", id: "0AkiAfilrTUXV49dleC5SB" },
+          { title: "Girl, so confusing", subtitle: "Charli xcx", type: "spotify", id: "41krZZovstMJKeJZJtbL78" },
+          { title: "Apple", subtitle: "Charli xcx", type: "spotify", id: "19RybK6XDbAVpcdxSbZL1o" },
+          { title: "B2b", subtitle: "Charli xcx", type: "spotify", id: "4wTvw1dBiPXNiHTh0zzpcI" },
+          { title: "Mean girls", subtitle: "Charli xcx", type: "spotify", id: "1qKCO2Tocwg8CbepJ9uDtd" },
+          { title: "I think about it all the time", subtitle: "Charli xcx", type: "spotify", id: "3OaFGqHUyxGVkOcSILw8Kx" },
+          { title: "365", subtitle: "Charli xcx", type: "spotify", id: "5h68SoVFGleijCtjEja3xG" },
+        ],
+      },
+      {
+        key: "dua-lipa",
+        label: "Dua Lipa",
+        image: "/assets/albums/dua-lipa.png",
+        slot: 2,
+        tracks: [
+          { title: "Future Nostalgia", subtitle: "Dua Lipa", type: "spotify", id: "6zrJLhslleCHby0wbUnvVy" },
+          { title: "Don't Start Now", subtitle: "Dua Lipa", type: "spotify", id: "3PfIrDoz19wz7qK7tYeu62" },
+          { title: "Cool", subtitle: "Dua Lipa", type: "spotify", id: "2nMOodYNHBAQ3Kc1QNimZU" },
+          { title: "Physical", subtitle: "Dua Lipa", type: "spotify", id: "3AzjcOeAmA57TIOr9zF1ZW" },
+          { title: "Levitating", subtitle: "Dua Lipa", type: "spotify", id: "39LLxExYz6ewLAcYrzQQyP" },
+          { title: "Pretty Please", subtitle: "Dua Lipa", type: "spotify", id: "6DXZiYUbrYgrVIhfX3U9Z2" },
+          { title: "Hallucinate", subtitle: "Dua Lipa", type: "spotify", id: "1nYeVF5vIBxMxfPoL0SIWg" },
+          { title: "Love Again", subtitle: "Dua Lipa", type: "spotify", id: "4rPkN1FMzQyFNP9cLUGIIB" },
+          { title: "Break My Heart", subtitle: "Dua Lipa", type: "spotify", id: "017PF4Q3l4DBUiWoXk4OWT" },
+          { title: "Good in Bed", subtitle: "Dua Lipa", type: "spotify", id: "6uAFJ75WDAoAPyCWJAtvks" },
+          { title: "Boys Will Be Boys", subtitle: "Dua Lipa", type: "spotify", id: "0vQcyuMEfRBd21ojZ62N2L" },
         ],
       },
     ],
@@ -2261,21 +2308,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const startIndex = category.groups.findIndex((group) => group.key === artistParam);
 
         if (groupLinkable && startIndex === -1) {
-          // Nodes sit evenly around a circle, starting at the top and going
-          // anticlockwise, so the second lands bottom-left and the third
-          // bottom-right (the same order as the tabs). Everything is measured
-          // in units of the circle's radius, so the box is sized to hug the
-          // nodes. Five nodes join every other one (a star); otherwise every
-          // pair is joined.
+          // Nodes sit evenly around a circle. A group's `slot` is its place
+          // clockwise from the top (0 = top); without one the groups go
+          // anticlockwise in tab order. Everything is measured in units of the
+          // circle's radius, so the box is sized to hug the nodes. Five nodes
+          // join every other one (a star); otherwise every pair is joined.
           const graphWrap = document.createElement("div");
           graphWrap.className = "album-graph-wrap";
           const graph = document.createElement("div");
           graph.className = "album-graph";
           graphWrap.appendChild(graph);
           const count = category.groups.length;
-          const half = 0.5;
-          const points = category.groups.map((group, i) => {
-            const angle = -Math.PI / 2 - (2 * Math.PI * i) / count;
+          const half = count >= 5 ? 0.38 : 0.5; // smaller nodes leave the star's lines visible
+          const slots = category.groups.map((group, i) =>
+            Number.isInteger(group.slot) ? group.slot : (count - i) % count
+          );
+          const points = slots.map((slot) => {
+            const angle = -Math.PI / 2 + (2 * Math.PI * slot) / count;
             return { x: Math.cos(angle), y: Math.sin(angle) };
           });
           const minX = Math.min(...points.map((p) => p.x));
@@ -2296,8 +2345,8 @@ document.addEventListener("DOMContentLoaded", () => {
           lines.setAttribute("aria-hidden", "true");
           for (let i = 0; i < count; i++) {
             for (let j = i + 1; j < count; j++) {
-              const gap = Math.min(j - i, count - (j - i));
-              if (count === 5 && gap !== 2) continue;
+              const apart = Math.abs(slots[i] - slots[j]);
+              if (count === 5 && Math.min(apart, count - apart) !== 2) continue;
               const line = document.createElementNS(svgNS, "line");
               line.setAttribute("x1", points[i].x);
               line.setAttribute("y1", points[i].y);
