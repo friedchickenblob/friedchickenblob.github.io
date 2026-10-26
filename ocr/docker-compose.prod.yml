@@ -1,0 +1,30 @@
+# Production stack for a small server (e.g. a Cybera VM): the OCR service plus
+# a Cloudflare Tunnel that publishes it at https://ocr.jordanckwan.party
+# without opening any ports. See DEPLOY.md.
+#
+#   cp .env.example .env     # then paste the tunnel token into .env
+#   docker compose -f docker-compose.prod.yml up -d --build
+
+services:
+  ocr:
+    build: .
+    restart: unless-stopped
+    environment:
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://jordanckwan.party}
+    volumes:
+      - huggingface-cache:/root/.cache/huggingface
+    # Only the tunnel (same compose network) needs to reach it.
+    expose:
+      - "5000"
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?set TUNNEL_TOKEN in .env}
+    depends_on:
+      - ocr
+
+volumes:
+  huggingface-cache:

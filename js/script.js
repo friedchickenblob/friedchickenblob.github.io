@@ -2575,7 +2575,11 @@ function wireBasicsTabs(container) {
   });
 }
 
-const OCR_SERVICE_URL = "http://localhost:5050/predict";
+// Local dev talks to the docker compose service; the live site uses the
+// hosted one (see ocr/DEPLOY.md).
+const OCR_SERVICE_URL = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+  ? "http://localhost:5050/predict"
+  : "https://ocr.jordanckwan.party/predict";
 
 const OCR_PRACTICE_WORDS = [
   { w: "ไก่", t: "gài", m: "chicken" },
@@ -2590,7 +2594,7 @@ const OCR_PRACTICE_WORDS = [
 
 function renderOcrPractice() {
   return `
-    <p class="basics-note">Draw the target word below and check it against a real Thai handwriting-recognition model. This runs locally only ~ start it with <code>docker compose --profile ocr up</code> alongside the site.</p>
+    <p class="basics-note">Draw the target word below and check it against a real Thai handwriting-recognition model. The first check after a quiet spell can take a little longer.</p>
     <div class="ocr-target">
       <div>
         <span class="ocr-target-word" id="ocr-target-word"></span>
@@ -2705,7 +2709,7 @@ function wireOcrPractice(container) {
       `;
     } catch (err) {
       resultEl.className = "ocr-result error";
-      resultEl.innerHTML = "<p>Can't reach the practice server. Run <code>docker compose --profile ocr up</code> to use this locally.</p>";
+      resultEl.innerHTML = "<p>Can't reach the practice server right now. It may be waking up, so try again in a moment.</p>";
     }
   });
 }

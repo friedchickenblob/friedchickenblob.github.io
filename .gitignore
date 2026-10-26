@@ -10,3 +10,6 @@ Thumbs.db
 # Python (ocr service)
 __pycache__/
 *.pyc
+
+# OCR deploy secrets
+ocr/.env
