@@ -1315,6 +1315,7 @@ const MUSIC = {
       { title: "Introvert", subtitle: "Little Simz", type: "youtube", id: "hxfGQ2AJHGk" },
       { title: "No Tears Left to Cry", subtitle: "Ariana Grande", type: "youtube", id: "ffxKSjUwKdU" },
       { title: "7월 7일 (One Of These Nights)", subtitle: "Red Velvet 레드벨벳", type: "youtube", id: "9xWiro_tS1k" },
+      { title: "花園裡的流星雨 (Meteor Shower)", subtitle: "Karencici", type: "youtube", id: "gmrQire09TM" },
       { title: "ลามปาม (circus)", subtitle: "BOWKYLION ft. Jeff Satur", type: "youtube", id: "8zsY7HiM25o" },
       { title: "ラビリンス (Labyrinth)", subtitle: "MONDO GROSSO", type: "youtube", id: "_2quiyHfJQw" },
     ],
@@ -2115,6 +2116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (musicTitle && musicTracks) {
     const categoryKey = new URLSearchParams(window.location.search).get("category");
     const category = MUSIC[categoryKey];
+    if (categoryKey) musicTracks.dataset.category = categoryKey;
 
     // Autoplay-next: the Spotify and YouTube iframe APIs tell us when a song
     // finishes, and the next embed in the same list is started. If an API

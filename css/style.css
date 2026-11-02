@@ -869,6 +869,19 @@ html[data-fun-tab="food"] .tab-buttons button[data-tab="food"] {
   display: none;
 }
 
+/* Phones: Singlez songs sit closer together (half the usual space between
+   embeds: the list gap plus each embed's own top and bottom margin). */
+@media (max-width: 640px) {
+  #music-tracks[data-category="singles"] {
+    gap: 0.625rem;
+  }
+
+  #music-tracks[data-category="singles"] .video-embed {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
 .embed-placeholder {
   position: absolute;
   inset: 0;
