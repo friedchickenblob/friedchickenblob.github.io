@@ -13,3 +13,9 @@ __pycache__/
 
 # OCR deploy secrets
 ocr/.env
+
+# jordanckwan.dev build output
+dist/
+
+# Wrangler local cache
+.wrangler/

@@ -10,7 +10,7 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://jordanckwan.party}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://jordanckwan.party,https://jordanckwan.dev}
     volumes:
       - huggingface-cache:/root/.cache/huggingface
     # Only the tunnel (same compose network) needs to reach it.

@@ -1,0 +1,17 @@
+{
+  // jordanckwan.dev: the same site as jordanckwan.party, served by Cloudflare
+  // (Workers static assets, free) from the dist/ folder that
+  // deploy/build-dev.sh builds. Deploy with:
+  //   sh deploy/build-dev.sh
+  //   npx wrangler deploy --config deploy/wrangler.jsonc
+  "name": "jordanckwan-dev",
+  "compatibility_date": "2026-11-03",
+  "account_id": "8773117ab3c7b859976747fa94e7abab",
+  "workers_dev": false,
+  "assets": {
+    "directory": "../dist"
+  },
+  "routes": [
+    { "pattern": "jordanckwan.dev", "custom_domain": true }
+  ]
+}

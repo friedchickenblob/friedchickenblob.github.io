@@ -52,6 +52,11 @@ live site the widget calls `https://ocr.jordanckwan.party/predict`; the setup fo
 hosting that (a VM plus a Cloudflare Tunnel) is in [ocr/DEPLOY.md](ocr/DEPLOY.md).
 If the service isn't reachable, the widget just shows a friendly message.
 
+### jordanckwan.dev
+
+A second copy of the site is built for `jordanckwan.dev` (Cloudflare Workers assets) with a
+mirrored Dream Team Hub favicon. See [deploy/DEPLOY-dev.md](deploy/DEPLOY-dev.md).
+
 ## Structure
 
 ```

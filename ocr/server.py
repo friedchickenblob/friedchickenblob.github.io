@@ -22,7 +22,7 @@ ALLOWED_ORIGINS = {
     origin.strip()
     for origin in os.environ.get(
         "ALLOWED_ORIGINS",
-        "https://jordanckwan.party,http://localhost:8090,http://localhost:8123",
+        "https://jordanckwan.party,https://jordanckwan.dev,http://localhost:8090,http://localhost:8123",
     ).split(",")
     if origin.strip()
 }
